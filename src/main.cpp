@@ -21,6 +21,7 @@ int main()
 
         cout << "1. Admin Login\n";
         cout << "2. Employee Login\n";
+        cout << "3. HR Login\n";
         cout << "0. Exit\n";
         cout << "========================================\n";
 

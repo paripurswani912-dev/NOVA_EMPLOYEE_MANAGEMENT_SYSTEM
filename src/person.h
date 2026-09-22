@@ -30,6 +30,10 @@ public:
     {
     active = false;
     }
+    bool isActive()
+    {
+    return active;
+    }
     string getPassword()
     {
     return password;

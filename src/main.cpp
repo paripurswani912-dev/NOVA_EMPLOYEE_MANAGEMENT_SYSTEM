@@ -236,6 +236,66 @@ int main()
             {
                 cout << "\nLogin successful!\n";
                 cout << "Welcome, HR.\n";
+
+                int hrChoice;
+
+                do
+                {
+                    cout << "\n========================================\n";
+                    cout << "              HR DASHBOARD\n";
+                    cout << "========================================\n\n";
+
+                    cout << "1. View Employee Records\n";
+                    cout << "2. Mark Employee Attendance\n";
+                    cout << "3. Submit Salary Raise Request\n";
+                    cout << "4. Give Employee Performance Rating\n";
+                    cout << "5. View My Details\n";
+                    cout << "6. View My Attendance\n";
+                    cout << "7. View My Salary\n";
+                    cout << "0. Logout\n";
+
+                    cout << "========================================\n";
+                    cout << "Enter your choice: ";
+                    cin >> hrChoice;
+
+                    if (hrChoice == 1)
+                    {
+                        cout << "\nView Employee Records selected.\n";
+                    }
+                    else if (hrChoice == 2)
+                    {
+                        cout << "\nMark Employee Attendance selected.\n";
+                    }
+                    else if (hrChoice == 3)
+                    {
+                        cout << "\nSubmit Salary Raise Request selected.\n";
+                    }
+                    else if (hrChoice == 4)
+                    {
+                        cout << "\nGive Employee Performance Rating selected.\n";
+                    }
+                    else if (hrChoice == 5)
+                    {
+                        cout << "\nView My Details selected.\n";
+                    }
+                    else if (hrChoice == 6)
+                    {
+                        cout << "\nView My Attendance selected.\n";
+                    }
+                    else if (hrChoice == 7)
+                    {
+                        cout << "\nView My Salary selected.\n";
+                    }
+                    else if (hrChoice == 0)
+                    {
+                        cout << "\nLogging out from HR account...\n";
+                    }
+                    else
+                    {
+                        cout << "\nInvalid choice. Please try again.\n";
+                    }
+
+                } while (hrChoice != 0);
             }
             else
             {

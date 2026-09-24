@@ -156,45 +156,69 @@ int main()
 
                     } while (employeeChoice != 0);
                 }
-                    else if (adminChoice == 3)
-                    {
-                        cout << "\nAttendance Management selected.\n";
-                    }
-                    else if (adminChoice == 4)
-                    {
-                        cout << "\nSalary Management selected.\n";
-                    }
-                    else if (adminChoice == 5)
-                    {
-                        cout << "\nPerformance Management selected.\n";
-                    }
-                    else if (adminChoice == 6)
-                    {
-                        cout << "\nPromotion Management selected.\n";
-                    }
-                    else if (adminChoice == 7)
-                    {
-                        cout << "\nAudit Trail selected.\n";
-                    }
-                    else if (adminChoice == 8)
-                    {
-                        cout << "\nActivity Dashboard selected.\n";
-                    }
-                    else if (adminChoice == 0)
-                    {
-                        cout << "\nLogging out...\n";
-                    }
-                    else
-                    {
-                        cout << "\nInvalid choice. Please try again.\n";
-                    }
+                else if (adminChoice == 3)
+                {
+                    int attendanceChoice;
 
-                } while (adminChoice != 0);
-            }
-            else
-            {
-                cout << "\nInvalid Admin ID or Password.\n";
-            }
+                    do
+                    {
+                        cout << "\n========== ATTENDANCE MANAGEMENT ==========\n";
+                        cout << "1. View All Attendance\n";
+                        cout << "0. Back\n";
+
+                        cout << "\nEnter your choice: ";
+                        cin >> attendanceChoice;
+
+                        if (attendanceChoice == 1)
+                        {
+                            admin.viewAllAttendance();
+                        }
+                        else if (attendanceChoice == 0)
+                        {
+                            cout << "\nGoing back...\n";
+                        }
+                        else
+                        {
+                            cout << "\nInvalid choice. Please try again.\n";
+                        }
+
+                    } while (attendanceChoice != 0);
+                }
+                else if (adminChoice == 4)
+                {
+                    cout << "\nSalary Management selected.\n";
+                }
+                else if (adminChoice == 5)
+                {
+                    cout << "\nPerformance Management selected.\n";
+                }
+                else if (adminChoice == 6)
+                {
+                    cout << "\nPromotion Management selected.\n";
+                }
+                else if (adminChoice == 7)
+                {
+                    cout << "\nAudit Trail selected.\n";
+                }
+                else if (adminChoice == 8)
+                {
+                    cout << "\nActivity Dashboard selected.\n";
+                }
+                else if (adminChoice == 0)
+                {
+                    cout << "\nLogging out...\n";
+                }
+                else
+                {
+                    cout << "\nInvalid choice. Please try again.\n";
+                }
+
+            } while (adminChoice != 0);
+        }
+        else
+        {
+            cout << "\nInvalid Admin ID or Password.\n";
+        }
         }
         else if (choice == 2)
         {
@@ -261,10 +285,35 @@ int main()
                     if (hrChoice == 1)
                     {
                         cout << "\nView Employee Records selected.\n";
+                        admin.viewAllEmployees();
                     }
                     else if (hrChoice == 2)
                     {
-                        cout << "\nMark Employee Attendance selected.\n";
+                        string employeeID;
+                        string date;
+                        string status;
+                        string markedBy;
+
+                        cout << "\n========== MARK EMPLOYEE ATTENDANCE ==========\n";
+
+                        cout << "Enter Employee ID: ";
+                        cin >> employeeID;
+
+                        cout << "Enter Date: ";
+                        cin >> date;
+
+                        cout << "Enter Status (Present/Absent/Paid Leave): ";
+                        cin >> status;
+
+                        cout << "Enter HR ID: ";
+                        cin >> markedBy;
+
+                        admin.markEmployeeAttendance(
+                            employeeID,
+                            date,
+                            status,
+                            markedBy
+                        );
                     }
                     else if (hrChoice == 3)
                     {

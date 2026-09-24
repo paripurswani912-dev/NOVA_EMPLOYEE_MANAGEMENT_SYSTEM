@@ -4,6 +4,7 @@
 
 #include "HR.h"
 #include "Employee.h"
+#include "Attendance.h"
 class Login;
 
 class SuperAdmin
@@ -14,6 +15,7 @@ private:
     string name;
     vector<HR> hrList;
     vector<Employee> employeeList;
+    vector<Attendance> attendanceList;
 
 public:
     friend class Login;
@@ -132,6 +134,7 @@ void deactivateHR()
 
     cout << "\nHR with ID " << searchID << " not found.\n";
 }
+
 void addEmployee()
 {
     Employee newEmployee;
@@ -211,7 +214,45 @@ void deactivateEmployee()
 
     cout << "\nEmployee with ID " << searchID << " not found.\n";
 }
+void markEmployeeAttendance(string employeeID, string date, string status, string markedBy)
+{
+    for (size_t i = 0; i < employeeList.size(); i++)
+    {
+        if (employeeList[i].getID() == employeeID)
+        {
+            Attendance newAttendance;
 
+            newAttendance.markAttendance(
+                employeeID,
+                date,
+                status,
+                markedBy
+            );
+
+            attendanceList.push_back(newAttendance);
+
+            cout << "\nAttendance marked successfully.\n";
+            return;
+        }
+    }
+
+    cout << "\nEmployee with ID " << employeeID << " not found.\n";
+}
+void viewAllAttendance()
+{
+    if (attendanceList.empty())
+    {
+        cout << "\nNo attendance records found.\n";
+        return;
+    }
+
+    cout << "\n========== ALL ATTENDANCE RECORDS ==========\n";
+
+    for (size_t i = 0; i < attendanceList.size(); i++)
+    {
+        attendanceList[i].displayAttendance();
+    }
+}
 
     
 };

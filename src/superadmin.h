@@ -214,12 +214,44 @@ void deactivateEmployee()
 
     cout << "\nEmployee with ID " << searchID << " not found.\n";
 }
+
+int countPaidLeaves(string employeeID, string month)
+{
+    int count = 0;
+
+    for (size_t i = 0; i < attendanceList.size(); i++)
+    {
+        if (attendanceList[i].getPersonID() == employeeID &&
+            attendanceList[i].getMonth() == month &&
+            attendanceList[i].getStatus() == "Paid")
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
 void markEmployeeAttendance(string employeeID, string date, string status, string markedBy)
 {
     for (size_t i = 0; i < employeeList.size(); i++)
     {
         if (employeeList[i].getID() == employeeID)
         {
+            string month = date.substr(3, 2);
+
+            if (status == "Paid")
+            {
+                int paidLeaves = countPaidLeaves(employeeID, month);
+
+                if (paidLeaves >= 2)
+                {
+                    status = "Absent";
+
+                    cout << "\nPaid leave limit reached for this month.\n";
+                    cout << "Attendance has been marked as Absent instead.\n";
+                }
+            }
+
             Attendance newAttendance;
 
             newAttendance.markAttendance(

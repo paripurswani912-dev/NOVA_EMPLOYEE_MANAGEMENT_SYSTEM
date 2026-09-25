@@ -30,6 +30,15 @@ public:
         status = attendanceStatus;
         markedBy = markerID;
     }
+    string getPersonID()
+{
+    return personID;
+}
+
+string getStatus()
+{
+    return status;
+}
     string getMonth()
     {
     return date.substr(3, 2);

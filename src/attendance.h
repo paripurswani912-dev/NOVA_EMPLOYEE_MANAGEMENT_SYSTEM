@@ -30,7 +30,10 @@ public:
         status = attendanceStatus;
         markedBy = markerID;
     }
-
+    string getMonth()
+    {
+    return date.substr(3, 2);
+    }
     void displayAttendance()
     {
         cout << "\n========== ATTENDANCE ==========\n";

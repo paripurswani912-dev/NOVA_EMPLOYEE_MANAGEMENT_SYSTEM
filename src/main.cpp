@@ -292,7 +292,7 @@ int main()
                         string employeeID;
                         string date;
                         string status;
-                        string markedBy;
+                    
 
                         cout << "\n========== MARK EMPLOYEE ATTENDANCE ==========\n";
 
@@ -302,17 +302,28 @@ int main()
                         cout << "Enter Date: ";
                         cin >> date;
 
-                        cout << "Enter Status (Present/Absent/Paid Leave): ";
-                        cin >> status;
+                        do
+                        {
+                            cout << "Enter Status (Present/Absent/Paid Leave): ";
+                            cin >> status;
 
-                        cout << "Enter HR ID: ";
-                        cin >> markedBy;
+                            if (status != "Present" &&
+                                status != "Absent" &&
+                                status != "Paid")
+                            {
+                                cout << "\nInvalid status. Please enter Present, Absent, or Paid.\n";
+                            }
+
+                        } while (status != "Present" &&
+                                status != "Absent" &&
+                                status != "Paid");
+
 
                         admin.markEmployeeAttendance(
                             employeeID,
                             date,
                             status,
-                            markedBy
+                            enteredID
                         );
                     }
                     else if (hrChoice == 3)

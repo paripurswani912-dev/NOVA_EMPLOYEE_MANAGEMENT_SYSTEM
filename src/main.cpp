@@ -1,8 +1,10 @@
 #include <iostream>
+
 #include "Person.h"
 #include "Employee.h"
 #include "SuperAdmin.h"
 #include "Login.h"
+
 using namespace std;
 
 int main()
@@ -10,8 +12,6 @@ int main()
     SuperAdmin admin;
     int choice;
     Login login;
-
-    
 
     do
     {
@@ -23,10 +23,14 @@ int main()
         cout << "2. Employee Login\n";
         cout << "3. HR Login\n";
         cout << "0. Exit\n";
-        cout << "========================================\n";
 
+        cout << "========================================\n";
         cout << "Enter your choice: ";
         cin >> choice;
+
+        // =========================================================
+        // ADMIN LOGIN
+        // =========================================================
 
         if (choice == 1)
         {
@@ -47,7 +51,6 @@ int main()
                 cout << "\nLogin successful!\n";
                 cout << "Welcome, Super Admin.\n";
 
-                // Super Admin Dashboard
                 do
                 {
                     cout << "\n========================================\n";
@@ -68,241 +71,405 @@ int main()
                     cout << "Enter your choice: ";
                     cin >> adminChoice;
 
+                    // =====================================================
+                    // MANAGE HR
+                    // =====================================================
+
                     if (adminChoice == 1)
+                    {
+                        int hrChoice;
+
+                        do
                         {
-                            int hrChoice;
+                            cout << "\n========== MANAGE HR ==========\n";
+                            cout << "1. View All HR\n";
+                            cout << "2. View HR by ID\n";
+                            cout << "3. Add HR\n";
+                            cout << "4. Deactivate HR\n";
+                            cout << "0. Back\n";
+                            cout << "===============================\n";
 
-                            do
+                            cout << "Enter your choice: ";
+                            cin >> hrChoice;
+
+                            if (hrChoice == 1)
                             {
-                                cout << "\n========== MANAGE HR ==========\n";
-                                cout << "1. View All HR\n";
-                                cout << "2. View HR by ID\n";
-                                cout << "3. Add HR\n";
-                                cout << "4. Deactivate HR\n";
-                                cout << "0. Back\n";
-                                cout << "===============================\n";
+                                admin.viewAllHR();
+                            }
+                            else if (hrChoice == 2)
+                            {
+                                admin.viewHRByID();
+                            }
+                            else if (hrChoice == 3)
+                            {
+                                admin.addHR();
+                            }
+                            else if (hrChoice == 4)
+                            {
+                                admin.deactivateHR();
+                            }
+                            else if (hrChoice == 0)
+                            {
+                                cout << "\nReturning to Super Admin Dashboard...\n";
+                            }
+                            else
+                            {
+                                cout << "\nInvalid choice. Please try again.\n";
+                            }
 
-                                cout << "Enter your choice: ";
-                                cin >> hrChoice;
+                        } while (hrChoice != 0);
+                    }
 
-                                if (hrChoice == 1)
-                                {
-                                    admin.viewAllHR();
-                                }
-                                else if (hrChoice == 2)
-                                {
-                                    admin.viewHRByID();
-                                }
-                                else if (hrChoice == 3)
-                                {
-                                    admin.addHR();
-                                }
-                                else if (hrChoice == 4)
-                                {
-                                    admin.deactivateHR();
-                                }
-                                else if (hrChoice == 0)
-                                {
-                                    cout << "\nReturning to Super Admin Dashboard...\n";
-                                }
-                                else
-                                {
-                                    cout << "\nInvalid choice. Please try again.\n";
-                                }
+                    // =====================================================
+                    // MANAGE EMPLOYEES
+                    // =====================================================
 
-                            } while (hrChoice != 0);
-                        }
                     else if (adminChoice == 2)
                     {
-                    int employeeChoice;
+                        int employeeChoice;
 
-                    do
-                    {
-                        cout << "\n====== MANAGE EMPLOYEES ======\n";
-                        cout << "1. Add Employee\n";
-                        cout << "2. View All Employees\n";
-                        cout << "3. View Employee by ID\n";
-                        cout << "4. Deactivate Employee\n";
-                        cout << "0. Back\n";
-                        cout << "==============================\n";
-
-                        cout << "Enter your choice: ";
-                        cin >> employeeChoice;
-
-                        if (employeeChoice == 1)
+                        do
                         {
-                            admin.addEmployee();
-                        }
-                        else if (employeeChoice == 2)
-                        {
-                            admin.viewAllEmployees();
-                        }
-                        else if (employeeChoice == 3)
-                        {
-                            admin.viewEmployeeByID();
-                        }
-                        else if (employeeChoice == 4)
-                        {
-                            admin.deactivateEmployee();
-                        }
-                        else if (employeeChoice == 0)
-                        {
-                            cout << "\nReturning to Super Admin Dashboard...\n";
-                        }
-                        else
-                        {
-                            cout << "\nInvalid choice. Please try again.\n";
-                        }
+                            cout << "\n====== MANAGE EMPLOYEES ======\n";
+                            cout << "1. Add Employee\n";
+                            cout << "2. View All Employees\n";
+                            cout << "3. View Employee by ID\n";
+                            cout << "4. Deactivate Employee\n";
+                            cout << "0. Back\n";
+                            cout << "==============================\n";
 
-                    } while (employeeChoice != 0);
-                }
-                else if (adminChoice == 3)
-                {
-                    int attendanceChoice;
+                            cout << "Enter your choice: ";
+                            cin >> employeeChoice;
 
-                    do
-                    {
-                        cout << "\n========== ATTENDANCE MANAGEMENT ==========\n";
-                        cout << "1. View All Attendance\n";
-                        cout << "2. Mark HR Attendance\n";
-                        cout << "3. View Attendance Summary\n";
-                        cout << "0. Back\n";
-
-                        cout << "\nEnter your choice: ";
-                        cin >> attendanceChoice;
-
-                        if (attendanceChoice == 1)
-                        {
-                            admin.viewAllAttendance();
-                        }
-                        else if (attendanceChoice == 2)
-                        {
-                            string hrID;
-                            string date;
-                            string status;
-
-                            cout << "\n========== MARK HR ATTENDANCE ==========\n";
-
-                            cout << "Enter HR ID: ";
-                            cin >> hrID;
-
-                            cout << "Enter Date (DD/MM/YYYY): ";
-                            cin >> date;
-
-                            do
+                            if (employeeChoice == 1)
                             {
-                                cout << "Enter Status (Present/Absent/Paid): ";
-                                cin >> status;
+                                admin.addEmployee();
+                            }
+                            else if (employeeChoice == 2)
+                            {
+                                admin.viewAllEmployees();
+                            }
+                            else if (employeeChoice == 3)
+                            {
+                                admin.viewEmployeeByID();
+                            }
+                            else if (employeeChoice == 4)
+                            {
+                                admin.deactivateEmployee();
+                            }
+                            else if (employeeChoice == 0)
+                            {
+                                cout << "\nReturning to Super Admin Dashboard...\n";
+                            }
+                            else
+                            {
+                                cout << "\nInvalid choice. Please try again.\n";
+                            }
 
-                                if (status != "Present" &&
-                                    status != "Absent" &&
-                                    status != "Paid")
-                                {
-                                    cout << "\nInvalid status. Please enter Present, Absent, or Paid.\n";
-                                }
+                        } while (employeeChoice != 0);
+                    }
 
-                            } while (status != "Present" &&
-                                    status != "Absent" &&
-                                    status != "Paid");
+                    // =====================================================
+                    // ATTENDANCE MANAGEMENT
+                    // =====================================================
 
-                            admin.markHRAttendance(
-                                hrID,
-                                date,
-                                status
-                            );
-                        }
-                        else if (attendanceChoice == 0)
-                        {
-                            cout << "\nGoing back...\n";
-                        }
-                        else
-                        {
-                            cout << "\nInvalid choice. Please try again.\n";
-                        }
-
-                    } while (attendanceChoice != 0);
-                }
-                else if (adminChoice == 4)
-                {
-                    int salaryChoice;
-
-                    do
+                    else if (adminChoice == 3)
                     {
-                        cout << "\n========== SALARY MANAGEMENT ==========\n";
-                        cout << "1. View Employee Salary\n";
-                        cout << "2. Update Employee Salary\n";
-                        cout << "3. View Salary History\n";
-                        cout << "4. View Salary Raise Requests\n";
-                        cout << "5. Approve / Reject Salary Raise Request\n";
-                        cout << "0. Back\n";
+                        int attendanceChoice;
 
-                        cout << "\nEnter your choice: ";
-                        cin >> salaryChoice;
+                        do
+                        {
+                            cout << "\n========== ATTENDANCE MANAGEMENT ==========\n";
+                            cout << "1. View All Attendance\n";
+                            cout << "2. Mark HR Attendance\n";
+                            cout << "3. View Attendance Summary\n";
+                            cout << "0. Back\n";
+                            cout << "===========================================\n";
 
-                        if (salaryChoice == 1)
-                        {
-                            admin.viewEmployeeSalary();
-                        }
-                        else if (salaryChoice == 2)
-                        {
-                            admin.updateEmployeeSalary();
-                        }
-                        else if (salaryChoice == 3)
-                        {
-                            admin.viewSalaryHistory();
-                        }
-                        else if (salaryChoice == 4)
-                        {
-                            admin.viewSalaryRaiseRequests();
-                        }
-                        else if (salaryChoice == 5)
-                        {
-                            admin.decideSalaryRaiseRequest();
-                        }
-                                                
-                        else if (salaryChoice == 0)
-                        {
-                            cout << "\nGoing back...\n";
-                        }
-                        else
-                        {
-                            cout << "\nInvalid choice. Please try again.\n";
-                        }
+                            cout << "Enter your choice: ";
+                            cin >> attendanceChoice;
 
-                    } while (salaryChoice != 0);
-                }
-                                else if (adminChoice == 5)
-                {
-                    cout << "\nPerformance Management selected.\n";
-                }
-                else if (adminChoice == 6)
-                {
-                    cout << "\nPromotion Management selected.\n";
-                }
-                else if (adminChoice == 7)
-                {
-                    cout << "\nAudit Trail selected.\n";
-                }
-                else if (adminChoice == 8)
-                {
-                    cout << "\nActivity Dashboard selected.\n";
-                }
-                else if (adminChoice == 0)
-                {
-                    cout << "\nLogging out...\n";
-                }
-                else
-                {
-                    cout << "\nInvalid choice. Please try again.\n";
-                }
+                            if (attendanceChoice == 1)
+                            {
+                                admin.viewAllAttendance();
+                            }
 
-            } while (adminChoice != 0);
+                            else if (attendanceChoice == 2)
+                            {
+                                string hrID;
+                                string date;
+                                string status;
+
+                                cout << "\n========== MARK HR ATTENDANCE ==========\n";
+
+                                cout << "Enter HR ID: ";
+                                cin >> hrID;
+
+                                cout << "Enter Date (DD/MM/YYYY): ";
+                                cin >> date;
+
+                                do
+                                {
+                                    cout << "Enter Status (Present/Absent/Paid): ";
+                                    cin >> status;
+
+                                    if (status != "Present" &&
+                                        status != "Absent" &&
+                                        status != "Paid")
+                                    {
+                                        cout << "\nInvalid status. "
+                                             << "Please enter Present, Absent, or Paid.\n";
+                                    }
+
+                                } while (status != "Present" &&
+                                         status != "Absent" &&
+                                         status != "Paid");
+
+                                admin.markHRAttendance(
+                                    hrID,
+                                    date,
+                                    status
+                                );
+                            }
+
+                            else if (attendanceChoice == 3)
+                            {
+                                admin.viewAttendanceByID();
+                            }
+
+                            else if (attendanceChoice == 0)
+                            {
+                                cout << "\nGoing back...\n";
+                            }
+
+                            else
+                            {
+                                cout << "\nInvalid choice. Please try again.\n";
+                            }
+
+                        } while (attendanceChoice != 0);
+                    }
+
+                    // =====================================================
+                    // SALARY MANAGEMENT
+                    // =====================================================
+
+                    else if (adminChoice == 4)
+                    {
+                        int salaryChoice;
+
+                        do
+                        {
+                            cout << "\n========== SALARY MANAGEMENT ==========\n";
+                            cout << "1. View Employee Salary\n";
+                            cout << "2. Update Employee Salary\n";
+                            cout << "3. View Salary History\n";
+                            cout << "4. View Salary Raise Requests\n";
+                            cout << "5. Approve / Reject Salary Raise Request\n";
+                            cout << "0. Back\n";
+                            cout << "=======================================\n";
+
+                            cout << "Enter your choice: ";
+                            cin >> salaryChoice;
+
+                            if (salaryChoice == 1)
+                            {
+                                admin.viewEmployeeSalary();
+                            }
+
+                            else if (salaryChoice == 2)
+                            {
+                                admin.updateEmployeeSalary();
+                            }
+
+                            else if (salaryChoice == 3)
+                            {
+                                admin.viewSalaryHistory();
+                            }
+
+                            else if (salaryChoice == 4)
+                            {
+                                admin.viewSalaryRaiseRequests();
+                            }
+
+                            else if (salaryChoice == 5)
+                            {
+                                admin.decideSalaryRaiseRequest();
+                            }
+
+                            else if (salaryChoice == 0)
+                            {
+                                cout << "\nGoing back...\n";
+                            }
+
+                            else
+                            {
+                                cout << "\nInvalid choice. Please try again.\n";
+                            }
+
+                        } while (salaryChoice != 0);
+                    }
+
+                    // =====================================================
+                    // PERFORMANCE MANAGEMENT
+                    // =====================================================
+
+                    else if (adminChoice == 5)
+                    {
+                        int performanceChoice;
+
+                        do
+                        {
+                            cout << "\n========== PERFORMANCE MANAGEMENT ==========\n";
+                            cout << "1. View All Performance Records\n";
+                            cout << "2. View Employee Performance\n";
+                            cout << "0. Back\n";
+                            cout << "============================================\n";
+
+                            cout << "Enter your choice: ";
+                            cin >> performanceChoice;
+
+                            if (performanceChoice == 1)
+                            {
+                                admin.viewAllPerformance();
+                            }
+
+                            else if (performanceChoice == 2)
+                            {
+                                string employeeID;
+
+                                cout << "\nEnter Employee ID: ";
+                                cin >> employeeID;
+
+                                admin.viewEmployeePerformance(employeeID);
+                            }
+
+                            else if (performanceChoice == 0)
+                            {
+                                cout << "\nGoing back...\n";
+                            }
+
+                            else
+                            {
+                                cout << "\nInvalid choice. Please try again.\n";
+                            }
+
+                        } while (performanceChoice != 0);
+                    }
+
+                    // =====================================================
+                    // PROMOTION MANAGEMENT
+                    // =====================================================
+
+                    else if (adminChoice == 6)
+                    {
+                        int promotionChoice;
+
+                        do
+                        {
+                            cout << "\n========== PROMOTION MANAGEMENT ==========\n";
+                            cout << "1. Promote Employee\n";
+                            cout << "2. View All Promotions\n";
+                            cout << "0. Back\n";
+                            cout << "==========================================\n";
+
+                            cout << "Enter your choice: ";
+                            cin >> promotionChoice;
+
+                            if (promotionChoice == 1)
+                            {
+                                string employeeID;
+                                string newDesignation;
+                                string promotionDate;
+                                string reason;
+
+                                cout << "\n========== PROMOTE EMPLOYEE ==========\n";
+
+                                cout << "Enter Employee ID: ";
+                                cin >> employeeID;
+
+                                cin.ignore();
+
+                                cout << "Enter New Designation: ";
+                                getline(cin, newDesignation);
+
+                                cout << "Enter Promotion Date: ";
+                                getline(cin, promotionDate);
+
+                                cout << "Enter Reason for Promotion: ";
+                                getline(cin, reason);
+
+                                admin.promoteEmployee(
+                                    employeeID,
+                                    newDesignation,
+                                    promotionDate,
+                                    reason
+                                );
+                            }
+
+                            else if (promotionChoice == 2)
+                            {
+                                admin.viewAllPromotions();
+                            }
+
+                            else if (promotionChoice == 0)
+                            {
+                                cout << "\nReturning to Admin Dashboard...\n";
+                            }
+
+                            else
+                            {
+                                cout << "\nInvalid choice. Please try again.\n";
+                            }
+
+                        } while (promotionChoice != 0);
+                    }
+
+                    // =====================================================
+                    // AUDIT TRAIL
+                    // =====================================================
+
+                    else if (adminChoice == 7)
+                    {
+                        admin.viewAuditTrail();
+                    }
+
+                    // =====================================================
+                    // ACTIVITY DASHBOARD
+                    // =====================================================
+
+                    else if (adminChoice == 8)
+                    {
+                        cout << "\nActivity Dashboard selected.\n";
+                    }
+
+                    // =====================================================
+                    // LOGOUT
+                    // =====================================================
+
+                    else if (adminChoice == 0)
+                    {
+                        cout << "\nLogging out...\n";
+                    }
+
+                    else
+                    {
+                        cout << "\nInvalid choice. Please try again.\n";
+                    }
+
+                } while (adminChoice != 0);
+            }
+
+            else
+            {
+                cout << "\nInvalid Admin ID or Password.\n";
+            }
         }
-        else
-        {
-            cout << "\nInvalid Admin ID or Password.\n";
-        }
-        }
+
+        // =========================================================
+        // EMPLOYEE LOGIN
+        // =========================================================
+
         else if (choice == 2)
         {
             string enteredID;
@@ -316,16 +483,69 @@ int main()
             cout << "Enter Password: ";
             cin >> enteredPassword;
 
-            if (login.employeeLogin(admin, enteredID, enteredPassword))
+            if (login.employeeLogin(
+                    admin,
+                    enteredID,
+                    enteredPassword))
             {
                 cout << "\nLogin successful!\n";
                 cout << "Welcome, Employee.\n";
+
+                int employeeChoice;
+
+                do
+                {
+                    cout << "\n========================================\n";
+                    cout << "          EMPLOYEE DASHBOARD\n";
+                    cout << "========================================\n\n";
+
+                    cout << "1. View My Details\n";
+                    cout << "2. View My Attendance\n";
+                    cout << "3. View My Salary\n";
+                    cout << "0. Logout\n";
+
+                    cout << "\n========================================\n";
+                    cout << "Enter your choice: ";
+                    cin >> employeeChoice;
+
+                    if (employeeChoice == 1)
+                    {
+                        admin.viewEmployeeDetailsByID(enteredID);
+                    }
+
+                    else if (employeeChoice == 2)
+                    {
+                        admin.viewEmployeeAttendanceByID(enteredID);
+                    }
+
+                    else if (employeeChoice == 3)
+                    {
+                        admin.viewEmployeeSalaryByID(enteredID);
+                    }
+
+                    else if (employeeChoice == 0)
+                    {
+                        cout << "\nLogging out from Employee account...\n";
+                    }
+
+                    else
+                    {
+                        cout << "\nInvalid choice. Please try again.\n";
+                    }
+
+                } while (employeeChoice != 0);
             }
+
             else
             {
                 cout << "\nInvalid Employee ID or Password.\n";
             }
         }
+
+        // =========================================================
+        // HR LOGIN
+        // =========================================================
+
         else if (choice == 3)
         {
             string enteredID;
@@ -339,7 +559,10 @@ int main()
             cout << "Enter Password: ";
             cin >> enteredPassword;
 
-            if (login.hrLogin(admin, enteredID, enteredPassword))
+            if (login.hrLogin(
+                    admin,
+                    enteredID,
+                    enteredPassword))
             {
                 cout << "\nLogin successful!\n";
                 cout << "Welcome, HR.\n";
@@ -365,17 +588,26 @@ int main()
                     cout << "Enter your choice: ";
                     cin >> hrChoice;
 
+                    // =================================================
+                    // VIEW EMPLOYEE RECORDS
+                    // =================================================
+
                     if (hrChoice == 1)
                     {
                         cout << "\nView Employee Records selected.\n";
+
                         admin.viewAllEmployees();
                     }
+
+                    // =================================================
+                    // MARK EMPLOYEE ATTENDANCE
+                    // =================================================
+
                     else if (hrChoice == 2)
                     {
                         string employeeID;
                         string date;
                         string status;
-                    
 
                         cout << "\n========== MARK EMPLOYEE ATTENDANCE ==========\n";
 
@@ -387,20 +619,20 @@ int main()
 
                         do
                         {
-                            cout << "Enter Status (Present/Absent/Paid Leave): ";
+                            cout << "Enter Status (Present/Absent/Paid): ";
                             cin >> status;
 
                             if (status != "Present" &&
                                 status != "Absent" &&
                                 status != "Paid")
                             {
-                                cout << "\nInvalid status. Please enter Present, Absent, or Paid.\n";
+                                cout << "\nInvalid status. "
+                                     << "Please enter Present, Absent, or Paid.\n";
                             }
 
                         } while (status != "Present" &&
-                                status != "Absent" &&
-                                status != "Paid");
-
+                                 status != "Absent" &&
+                                 status != "Paid");
 
                         admin.markEmployeeAttendance(
                             employeeID,
@@ -409,6 +641,11 @@ int main()
                             enteredID
                         );
                     }
+
+                    // =================================================
+                    // SALARY RAISE REQUEST
+                    // =================================================
+
                     else if (hrChoice == 3)
                     {
                         string employeeID;
@@ -428,9 +665,12 @@ int main()
                         cout << "Enter Performance Rating (1-5): ";
                         cin >> performanceRating;
 
-                        while (performanceRating < 1 || performanceRating > 5)
+                        while (performanceRating < 1 ||
+                               performanceRating > 5)
                         {
-                            cout << "Invalid rating. Enter a rating between 1 and 5: ";
+                            cout << "Invalid rating. "
+                                 << "Enter a rating between 1 and 5: ";
+
                             cin >> performanceRating;
                         }
 
@@ -438,7 +678,9 @@ int main()
                         cin >> requestDate;
 
                         cout << "Enter Reason: ";
+
                         cin.ignore();
+
                         getline(cin, reason);
 
                         admin.submitSalaryRaiseRequest(
@@ -450,26 +692,88 @@ int main()
                             enteredID
                         );
                     }
+
+                    // =================================================
+                    // PERFORMANCE RATING
+                    // =================================================
+
                     else if (hrChoice == 4)
                     {
-                        cout << "\nGive Employee Performance Rating selected.\n";
+                        string employeeID;
+                        string review;
+                        string reviewDate;
+                        int rating;
+
+                        cout << "\n========== GIVE PERFORMANCE RATING ==========\n";
+
+                        cout << "Enter Employee ID: ";
+                        cin >> employeeID;
+
+                        cout << "Enter Performance Rating (1-10): ";
+                        cin >> rating;
+
+                        cin.ignore();
+
+                        cout << "Enter Review: ";
+                        getline(cin, review);
+
+                        cout << "Enter Review Date: ";
+                        getline(cin, reviewDate);
+
+                        if (rating < 1 || rating > 10)
+                        {
+                            cout << "\nInvalid rating. "
+                                 << "Rating must be between 1 and 10.\n";
+                        }
+
+                        else
+                        {
+                            admin.giveEmployeePerformanceRating(
+                                employeeID,
+                                rating,
+                                review,
+                                reviewDate,
+                                enteredID
+                            );
+                        }
                     }
+
+                    // =================================================
+                    // MY DETAILS
+                    // =================================================
+
                     else if (hrChoice == 5)
                     {
-                        cout << "\nView My Details selected.\n";
+                        admin.viewHRDetailsByID(enteredID);
                     }
+
+                    // =================================================
+                    // MY ATTENDANCE
+                    // =================================================
+
                     else if (hrChoice == 6)
                     {
-                        cout << "\nView My Attendance selected.\n";
+                        admin.viewHRAttendanceByID(enteredID);
                     }
+
+                    // =================================================
+                    // MY SALARY
+                    // =================================================
+
                     else if (hrChoice == 7)
                     {
-                        cout << "\nView My Salary selected.\n";
+                        admin.viewHRSalaryByID(enteredID);
                     }
+
+                    // =================================================
+                    // LOGOUT
+                    // =================================================
+
                     else if (hrChoice == 0)
                     {
                         cout << "\nLogging out from HR account...\n";
                     }
+
                     else
                     {
                         cout << "\nInvalid choice. Please try again.\n";
@@ -477,22 +781,28 @@ int main()
 
                 } while (hrChoice != 0);
             }
+
             else
             {
                 cout << "\nInvalid HR ID or Password.\n";
             }
         }
+
+        // =========================================================
+        // EXIT
+        // =========================================================
+
         else if (choice == 0)
         {
             cout << "\nExiting NOVA...\n";
         }
+
         else
         {
             cout << "\nInvalid choice. Please try again.\n";
         }
 
     } while (choice != 0);
-
 
     return 0;
 }

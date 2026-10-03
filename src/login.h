@@ -7,13 +7,17 @@ class Login
 {
 public:
 
-    bool employeeLogin(SuperAdmin &admin, string enteredID, string enteredPassword)
+    bool employeeLogin(
+        SuperAdmin &admin,
+        string enteredID,
+        string enteredPassword
+    )
     {
         for (size_t i = 0; i < admin.employeeList.size(); i++)
         {
             if (admin.employeeList[i].getID() == enteredID &&
-            admin.employeeList[i].getPassword() == enteredPassword &&
-            admin.employeeList[i].isActive())
+                admin.employeeList[i].getPassword() == enteredPassword &&
+                admin.employeeList[i].isActive())
             {
                 return true;
             }
@@ -22,7 +26,12 @@ public:
         return false;
     }
 
-    bool hrLogin(SuperAdmin &admin, string enteredID, string enteredPassword)
+
+    bool hrLogin(
+        SuperAdmin &admin,
+        string enteredID,
+        string enteredPassword
+    )
     {
         for (size_t i = 0; i < admin.hrList.size(); i++)
         {

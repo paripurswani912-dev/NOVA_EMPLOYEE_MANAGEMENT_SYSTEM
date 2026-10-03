@@ -18,26 +18,7 @@ protected:
     bool active;
 
 public:
-    string getID()
-    {
-    return id;
-    }
-    void setID(string newID)
-    {
-    id = newID;
-    }
-    void deactivate()
-    {
-    active = false;
-    }
-    bool isActive()
-    {
-    return active;
-    }
-    string getPassword()
-    {
-    return password;
-    }
+
     Person()
     {
         id = "";
@@ -48,6 +29,61 @@ public:
         phone = "";
         address = "";
         active = true;
+    }
+
+    string getID()
+    {
+        return id;
+    }
+
+    void setID(string newID)
+    {
+        id = newID;
+    }
+
+    string getPassword()
+    {
+        return password;
+    }
+
+    void setPassword(string newPassword)
+    {
+        password = newPassword;
+    }
+
+    void setName(string newName)
+    {
+        name = newName;
+    }
+
+    void setDateOfBirth(string newDateOfBirth)
+    {
+        dateOfBirth = newDateOfBirth;
+    }
+
+    void setEmail(string newEmail)
+    {
+        email = newEmail;
+    }
+
+    void setPhone(string newPhone)
+    {
+        phone = newPhone;
+    }
+
+    void setAddress(string newAddress)
+    {
+        address = newAddress;
+    }
+
+    void deactivate()
+    {
+        active = false;
+    }
+
+    bool isActive()
+    {
+        return active;
     }
 
     void displayBasicDetails()

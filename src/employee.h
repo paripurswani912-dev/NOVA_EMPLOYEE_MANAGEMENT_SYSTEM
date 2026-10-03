@@ -12,6 +12,7 @@ protected:
     double salary;
 
 public:
+
     Employee() : Person()
     {
         dateOfJoining = "";
@@ -19,24 +20,7 @@ public:
         designation = "";
         salary = 0;
     }
-    double getSalary()
-    {
-        return salary;
-    }
-    void setSalary(double newSalary)
-    {
-    salary = newSalary;
-    }
 
-    void displayEmployeeDetails()
-    {
-        displayBasicDetails();
-
-        cout << "Date of Joining: " << dateOfJoining << endl;
-        cout << "Department: " << department << endl;
-        cout << "Designation: " << designation << endl;
-        cout << "Salary: " << salary << endl;
-    }
     void inputDetails()
     {
         cout << "\n========== ADD EMPLOYEE ==========\n";
@@ -77,7 +61,80 @@ public:
 
         cout << "\nEmployee details entered successfully!\n";
     }
-    
+
+    void displayEmployeeDetails()
+    {
+        displayBasicDetails();
+
+        cout << "Date of Joining: " << dateOfJoining << endl;
+        cout << "Department: " << department << endl;
+        cout << "Designation: " << designation << endl;
+        cout << "Salary: " << salary << endl;
+    }
+
+    double getSalary()
+    {
+        return salary;
+    }
+
+    void setSalary(double newSalary)
+    {
+        salary = newSalary;
+    }
+
+    string getName()
+    {
+        return name;
+    }
+
+    string getDateOfBirth()
+    {
+        return dateOfBirth;
+    }
+
+    string getEmail()
+    {
+        return email;
+    }
+
+    string getPhone()
+    {
+        return phone;
+    }
+
+    string getAddress()
+    {
+        return address;
+    }
+
+    string getDateOfJoining()
+    {
+        return dateOfJoining;
+    }
+
+    string getDepartment()
+    {
+        return department;
+    }
+
+    string getDesignation()
+    {
+        return designation;
+    }
+    void setDateOfJoining(string newDateOfJoining)
+    {
+        dateOfJoining = newDateOfJoining;
+    }
+
+    void setDepartment(string newDepartment)
+    {
+        department = newDepartment;
+    }
+
+    void setDesignation(string newDesignation)
+    {
+        designation = newDesignation;
+    }
 };
 
 #endif

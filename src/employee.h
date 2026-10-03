@@ -19,6 +19,14 @@ public:
         designation = "";
         salary = 0;
     }
+    double getSalary()
+    {
+        return salary;
+    }
+    void setSalary(double newSalary)
+    {
+    salary = newSalary;
+    }
 
     void displayEmployeeDetails()
     {

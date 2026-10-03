@@ -164,6 +164,8 @@ int main()
                     {
                         cout << "\n========== ATTENDANCE MANAGEMENT ==========\n";
                         cout << "1. View All Attendance\n";
+                        cout << "2. Mark HR Attendance\n";
+                        cout << "3. View Attendance Summary\n";
                         cout << "0. Back\n";
 
                         cout << "\nEnter your choice: ";
@@ -172,6 +174,42 @@ int main()
                         if (attendanceChoice == 1)
                         {
                             admin.viewAllAttendance();
+                        }
+                        else if (attendanceChoice == 2)
+                        {
+                            string hrID;
+                            string date;
+                            string status;
+
+                            cout << "\n========== MARK HR ATTENDANCE ==========\n";
+
+                            cout << "Enter HR ID: ";
+                            cin >> hrID;
+
+                            cout << "Enter Date (DD/MM/YYYY): ";
+                            cin >> date;
+
+                            do
+                            {
+                                cout << "Enter Status (Present/Absent/Paid): ";
+                                cin >> status;
+
+                                if (status != "Present" &&
+                                    status != "Absent" &&
+                                    status != "Paid")
+                                {
+                                    cout << "\nInvalid status. Please enter Present, Absent, or Paid.\n";
+                                }
+
+                            } while (status != "Present" &&
+                                    status != "Absent" &&
+                                    status != "Paid");
+
+                            admin.markHRAttendance(
+                                hrID,
+                                date,
+                                status
+                            );
                         }
                         else if (attendanceChoice == 0)
                         {
@@ -186,9 +224,54 @@ int main()
                 }
                 else if (adminChoice == 4)
                 {
-                    cout << "\nSalary Management selected.\n";
+                    int salaryChoice;
+
+                    do
+                    {
+                        cout << "\n========== SALARY MANAGEMENT ==========\n";
+                        cout << "1. View Employee Salary\n";
+                        cout << "2. Update Employee Salary\n";
+                        cout << "3. View Salary History\n";
+                        cout << "4. View Salary Raise Requests\n";
+                        cout << "5. Approve / Reject Salary Raise Request\n";
+                        cout << "0. Back\n";
+
+                        cout << "\nEnter your choice: ";
+                        cin >> salaryChoice;
+
+                        if (salaryChoice == 1)
+                        {
+                            admin.viewEmployeeSalary();
+                        }
+                        else if (salaryChoice == 2)
+                        {
+                            admin.updateEmployeeSalary();
+                        }
+                        else if (salaryChoice == 3)
+                        {
+                            admin.viewSalaryHistory();
+                        }
+                        else if (salaryChoice == 4)
+                        {
+                            admin.viewSalaryRaiseRequests();
+                        }
+                        else if (salaryChoice == 5)
+                        {
+                            admin.decideSalaryRaiseRequest();
+                        }
+                                                
+                        else if (salaryChoice == 0)
+                        {
+                            cout << "\nGoing back...\n";
+                        }
+                        else
+                        {
+                            cout << "\nInvalid choice. Please try again.\n";
+                        }
+
+                    } while (salaryChoice != 0);
                 }
-                else if (adminChoice == 5)
+                                else if (adminChoice == 5)
                 {
                     cout << "\nPerformance Management selected.\n";
                 }
@@ -328,7 +411,44 @@ int main()
                     }
                     else if (hrChoice == 3)
                     {
-                        cout << "\nSubmit Salary Raise Request selected.\n";
+                        string employeeID;
+                        double proposedSalary;
+                        string reason;
+                        int performanceRating;
+                        string requestDate;
+
+                        cout << "\n========== SUBMIT SALARY RAISE REQUEST ==========\n";
+
+                        cout << "Enter Employee ID: ";
+                        cin >> employeeID;
+
+                        cout << "Enter Proposed Salary: ";
+                        cin >> proposedSalary;
+
+                        cout << "Enter Performance Rating (1-5): ";
+                        cin >> performanceRating;
+
+                        while (performanceRating < 1 || performanceRating > 5)
+                        {
+                            cout << "Invalid rating. Enter a rating between 1 and 5: ";
+                            cin >> performanceRating;
+                        }
+
+                        cout << "Enter Request Date (DD/MM/YYYY): ";
+                        cin >> requestDate;
+
+                        cout << "Enter Reason: ";
+                        cin.ignore();
+                        getline(cin, reason);
+
+                        admin.submitSalaryRaiseRequest(
+                            employeeID,
+                            proposedSalary,
+                            reason,
+                            performanceRating,
+                            requestDate,
+                            enteredID
+                        );
                     }
                     else if (hrChoice == 4)
                     {

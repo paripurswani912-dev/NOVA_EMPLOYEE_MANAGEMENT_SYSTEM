@@ -57,29 +57,11 @@ public:
         decisionDate = "";
         decidedBy = "";
     }
-    string getEmployeeID()
-    {
-        return employeeID;
-    }
-
-    double getProposedSalary()
-    {
-        return proposedSalary;
-    }
-    void setDecision(string newStatus, string date, string decidedByID)
-    {
-        status = newStatus;
-        decisionDate = date;
-        decidedBy = decidedByID;
-    }
-    string getStatus()
-    {
-    return status;
-    }
 
     void displayRequest()
     {
         cout << "\n========== SALARY RAISE REQUEST ==========\n";
+
         cout << "Employee ID: " << employeeID << endl;
         cout << "Current Salary: " << currentSalary << endl;
         cout << "Proposed Salary: " << proposedSalary << endl;
@@ -90,6 +72,68 @@ public:
         cout << "Status: " << status << endl;
         cout << "Decision Date: " << decisionDate << endl;
         cout << "Decided By: " << decidedBy << endl;
+    }
+
+    string getEmployeeID()
+    {
+        return employeeID;
+    }
+
+    double getCurrentSalary()
+    {
+        return currentSalary;
+    }
+
+    double getProposedSalary()
+    {
+        return proposedSalary;
+    }
+
+    string getReason()
+    {
+        return reason;
+    }
+
+    int getPerformanceRating()
+    {
+        return performanceRating;
+    }
+
+    string getRequestDate()
+    {
+        return requestDate;
+    }
+
+    // THIS WAS MISSING
+    string getRequestedBy()
+    {
+        return requestedBy;
+    }
+
+    string getStatus()
+    {
+        return status;
+    }
+
+    string getDecisionDate()
+    {
+        return decisionDate;
+    }
+
+    string getDecidedBy()
+    {
+        return decidedBy;
+    }
+
+    void setDecision(
+        string newStatus,
+        string date,
+        string decidedByID
+    )
+    {
+        status = newStatus;
+        decisionDate = date;
+        decidedBy = decidedByID;
     }
 };
 

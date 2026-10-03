@@ -50,9 +50,26 @@ public:
         return rating;
     }
 
+    string getReview()
+    {
+        return review;
+    }
+
+    string getReviewDate()
+    {
+        return reviewDate;
+    }
+
+    // THIS WAS MISSING
+    string getGivenBy()
+    {
+        return givenBy;
+    }
+
     void displayPerformance()
     {
         cout << "\n========== PERFORMANCE ==========\n";
+
         cout << "Person ID: " << personID << endl;
         cout << "Rating: " << rating << "/10" << endl;
         cout << "Review: " << review << endl;

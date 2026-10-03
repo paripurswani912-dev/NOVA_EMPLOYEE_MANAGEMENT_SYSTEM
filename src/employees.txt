@@ -7,6 +7,6 @@ sahar@gmail.com
 bhopal
 3/1/2026
 it
-jnr
-7000
+head
+20000
 1

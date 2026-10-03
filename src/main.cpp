@@ -10,8 +10,9 @@ using namespace std;
 int main()
 {
     SuperAdmin admin;
-    int choice;
     Login login;
+
+    int choice;
 
     do
     {
@@ -82,13 +83,14 @@ int main()
                         do
                         {
                             cout << "\n========== MANAGE HR ==========\n";
+
                             cout << "1. View All HR\n";
                             cout << "2. View HR by ID\n";
                             cout << "3. Add HR\n";
                             cout << "4. Deactivate HR\n";
                             cout << "0. Back\n";
-                            cout << "===============================\n";
 
+                            cout << "===============================\n";
                             cout << "Enter your choice: ";
                             cin >> hrChoice;
 
@@ -131,13 +133,14 @@ int main()
                         do
                         {
                             cout << "\n====== MANAGE EMPLOYEES ======\n";
+
                             cout << "1. Add Employee\n";
                             cout << "2. View All Employees\n";
                             cout << "3. View Employee by ID\n";
                             cout << "4. Deactivate Employee\n";
                             cout << "0. Back\n";
-                            cout << "==============================\n";
 
+                            cout << "==============================\n";
                             cout << "Enter your choice: ";
                             cin >> employeeChoice;
 
@@ -180,12 +183,13 @@ int main()
                         do
                         {
                             cout << "\n========== ATTENDANCE MANAGEMENT ==========\n";
+
                             cout << "1. View All Attendance\n";
                             cout << "2. Mark HR Attendance\n";
                             cout << "3. View Attendance Summary\n";
                             cout << "0. Back\n";
-                            cout << "===========================================\n";
 
+                            cout << "===========================================\n";
                             cout << "Enter your choice: ";
                             cin >> attendanceChoice;
 
@@ -193,7 +197,6 @@ int main()
                             {
                                 admin.viewAllAttendance();
                             }
-
                             else if (attendanceChoice == 2)
                             {
                                 string hrID;
@@ -231,17 +234,14 @@ int main()
                                     status
                                 );
                             }
-
                             else if (attendanceChoice == 3)
                             {
                                 admin.viewAttendanceByID();
                             }
-
                             else if (attendanceChoice == 0)
                             {
                                 cout << "\nGoing back...\n";
                             }
-
                             else
                             {
                                 cout << "\nInvalid choice. Please try again.\n";
@@ -261,14 +261,15 @@ int main()
                         do
                         {
                             cout << "\n========== SALARY MANAGEMENT ==========\n";
+
                             cout << "1. View Employee Salary\n";
                             cout << "2. Update Employee Salary\n";
                             cout << "3. View Salary History\n";
                             cout << "4. View Salary Raise Requests\n";
                             cout << "5. Approve / Reject Salary Raise Request\n";
                             cout << "0. Back\n";
-                            cout << "=======================================\n";
 
+                            cout << "=======================================\n";
                             cout << "Enter your choice: ";
                             cin >> salaryChoice;
 
@@ -276,32 +277,26 @@ int main()
                             {
                                 admin.viewEmployeeSalary();
                             }
-
                             else if (salaryChoice == 2)
                             {
                                 admin.updateEmployeeSalary();
                             }
-
                             else if (salaryChoice == 3)
                             {
                                 admin.viewSalaryHistory();
                             }
-
                             else if (salaryChoice == 4)
                             {
                                 admin.viewSalaryRaiseRequests();
                             }
-
                             else if (salaryChoice == 5)
                             {
                                 admin.decideSalaryRaiseRequest();
                             }
-
                             else if (salaryChoice == 0)
                             {
                                 cout << "\nGoing back...\n";
                             }
-
                             else
                             {
                                 cout << "\nInvalid choice. Please try again.\n";
@@ -321,11 +316,12 @@ int main()
                         do
                         {
                             cout << "\n========== PERFORMANCE MANAGEMENT ==========\n";
+
                             cout << "1. View All Performance Records\n";
                             cout << "2. View Employee Performance\n";
                             cout << "0. Back\n";
-                            cout << "============================================\n";
 
+                            cout << "============================================\n";
                             cout << "Enter your choice: ";
                             cin >> performanceChoice;
 
@@ -333,7 +329,6 @@ int main()
                             {
                                 admin.viewAllPerformance();
                             }
-
                             else if (performanceChoice == 2)
                             {
                                 string employeeID;
@@ -343,12 +338,10 @@ int main()
 
                                 admin.viewEmployeePerformance(employeeID);
                             }
-
                             else if (performanceChoice == 0)
                             {
                                 cout << "\nGoing back...\n";
                             }
-
                             else
                             {
                                 cout << "\nInvalid choice. Please try again.\n";
@@ -368,11 +361,12 @@ int main()
                         do
                         {
                             cout << "\n========== PROMOTION MANAGEMENT ==========\n";
+
                             cout << "1. Promote Employee\n";
                             cout << "2. View All Promotions\n";
                             cout << "0. Back\n";
-                            cout << "==========================================\n";
 
+                            cout << "==========================================\n";
                             cout << "Enter your choice: ";
                             cin >> promotionChoice;
 
@@ -406,17 +400,14 @@ int main()
                                     reason
                                 );
                             }
-
                             else if (promotionChoice == 2)
                             {
                                 admin.viewAllPromotions();
                             }
-
                             else if (promotionChoice == 0)
                             {
                                 cout << "\nReturning to Admin Dashboard...\n";
                             }
-
                             else
                             {
                                 cout << "\nInvalid choice. Please try again.\n";
@@ -440,7 +431,7 @@ int main()
 
                     else if (adminChoice == 8)
                     {
-                        cout << "\nActivity Dashboard selected.\n";
+                        admin.viewAdminActivity();
                     }
 
                     // =====================================================
@@ -459,7 +450,6 @@ int main()
 
                 } while (adminChoice != 0);
             }
-
             else
             {
                 cout << "\nInvalid Admin ID or Password.\n";
@@ -502,6 +492,7 @@ int main()
                     cout << "1. View My Details\n";
                     cout << "2. View My Attendance\n";
                     cout << "3. View My Salary\n";
+                    cout << "4. View My Activity Dashboard\n";
                     cout << "0. Logout\n";
 
                     cout << "\n========================================\n";
@@ -512,22 +503,22 @@ int main()
                     {
                         admin.viewEmployeeDetailsByID(enteredID);
                     }
-
                     else if (employeeChoice == 2)
                     {
                         admin.viewEmployeeAttendanceByID(enteredID);
                     }
-
                     else if (employeeChoice == 3)
                     {
                         admin.viewEmployeeSalaryByID(enteredID);
                     }
-
+                    else if (employeeChoice == 4)
+                    {
+                        admin.viewEmployeeActivity(enteredID);
+                    }
                     else if (employeeChoice == 0)
                     {
                         cout << "\nLogging out from Employee account...\n";
                     }
-
                     else
                     {
                         cout << "\nInvalid choice. Please try again.\n";
@@ -535,7 +526,6 @@ int main()
 
                 } while (employeeChoice != 0);
             }
-
             else
             {
                 cout << "\nInvalid Employee ID or Password.\n";
@@ -582,6 +572,7 @@ int main()
                     cout << "5. View My Details\n";
                     cout << "6. View My Attendance\n";
                     cout << "7. View My Salary\n";
+                    cout << "8. View Activity Dashboard\n";
                     cout << "0. Logout\n";
 
                     cout << "========================================\n";
@@ -725,7 +716,6 @@ int main()
                             cout << "\nInvalid rating. "
                                  << "Rating must be between 1 and 10.\n";
                         }
-
                         else
                         {
                             admin.giveEmployeePerformanceRating(
@@ -766,6 +756,15 @@ int main()
                     }
 
                     // =================================================
+                    // ACTIVITY DASHBOARD
+                    // =================================================
+
+                    else if (hrChoice == 8)
+                    {
+                        admin.viewHRActivity(enteredID);
+                    }
+
+                    // =================================================
                     // LOGOUT
                     // =================================================
 
@@ -781,7 +780,6 @@ int main()
 
                 } while (hrChoice != 0);
             }
-
             else
             {
                 cout << "\nInvalid HR ID or Password.\n";

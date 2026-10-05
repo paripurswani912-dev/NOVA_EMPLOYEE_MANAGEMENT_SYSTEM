@@ -60,7 +60,6 @@ public:
         return reviewDate;
     }
 
-    // THIS WAS MISSING
     string getGivenBy()
     {
         return givenBy;

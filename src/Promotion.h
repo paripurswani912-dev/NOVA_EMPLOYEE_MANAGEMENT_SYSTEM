@@ -49,15 +49,44 @@ public:
         return personID;
     }
 
+    string getOldDesignation()
+    {
+        return oldDesignation;
+    }
+
+    string getNewDesignation()
+    {
+        return newDesignation;
+    }
+
+    string getPromotionDate()
+    {
+        return promotionDate;
+    }
+
+    string getReason()
+    {
+        return reason;
+    }
+
+    string getPromotedBy()
+    {
+        return promotedBy;
+    }
+
     void displayPromotion()
     {
         cout << "\n========== PROMOTION ==========\n";
         cout << "Person ID: " << personID << endl;
-        cout << "Previous Designation: " << oldDesignation << endl;
-        cout << "New Designation: " << newDesignation << endl;
-        cout << "Promotion Date: " << promotionDate << endl;
+        cout << "Previous Designation: "
+             << oldDesignation << endl;
+        cout << "New Designation: "
+             << newDesignation << endl;
+        cout << "Promotion Date: "
+             << promotionDate << endl;
         cout << "Reason: " << reason << endl;
-        cout << "Promoted By: " << promotedBy << endl;
+        cout << "Promoted By: "
+             << promotedBy << endl;
     }
 };
 

@@ -52,26 +52,9 @@ public:
         performanceRating = rating;
         requestDate = date;
         requestedBy = requester;
-
         status = "Pending";
         decisionDate = "";
         decidedBy = "";
-    }
-
-    void displayRequest()
-    {
-        cout << "\n========== SALARY RAISE REQUEST ==========\n";
-
-        cout << "Employee ID: " << employeeID << endl;
-        cout << "Current Salary: " << currentSalary << endl;
-        cout << "Proposed Salary: " << proposedSalary << endl;
-        cout << "Reason: " << reason << endl;
-        cout << "Performance Rating: " << performanceRating << endl;
-        cout << "Request Date: " << requestDate << endl;
-        cout << "Requested By: " << requestedBy << endl;
-        cout << "Status: " << status << endl;
-        cout << "Decision Date: " << decisionDate << endl;
-        cout << "Decided By: " << decidedBy << endl;
     }
 
     string getEmployeeID()
@@ -104,7 +87,6 @@ public:
         return requestDate;
     }
 
-    // THIS WAS MISSING
     string getRequestedBy()
     {
         return requestedBy;
@@ -134,6 +116,23 @@ public:
         status = newStatus;
         decisionDate = date;
         decidedBy = decidedByID;
+    }
+
+    void displayRequest()
+    {
+        cout << "\n========== SALARY RAISE REQUEST ==========\n";
+
+        cout << "Employee ID: " << employeeID << endl;
+        cout << "Current Salary: " << currentSalary << endl;
+        cout << "Proposed Salary: " << proposedSalary << endl;
+        cout << "Reason: " << reason << endl;
+        cout << "Performance Rating: "
+             << performanceRating << endl;
+        cout << "Request Date: " << requestDate << endl;
+        cout << "Requested By: " << requestedBy << endl;
+        cout << "Status: " << status << endl;
+        cout << "Decision Date: " << decisionDate << endl;
+        cout << "Decided By: " << decidedBy << endl;
     }
 };
 

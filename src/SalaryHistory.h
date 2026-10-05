@@ -44,15 +44,57 @@ public:
         changedBy = changedByID;
     }
 
+    string getEmployeeID()
+    {
+        return employeeID;
+    }
+
+    double getPreviousSalary()
+    {
+        return previousSalary;
+    }
+
+    double getNewSalary()
+    {
+        return newSalary;
+    }
+
+    string getEffectiveDate()
+    {
+        return effectiveDate;
+    }
+
+    string getReason()
+    {
+        return reason;
+    }
+
+    string getChangedBy()
+    {
+        return changedBy;
+    }
+
     void displaySalaryHistory()
     {
         cout << "\n========== SALARY HISTORY ==========\n";
-        cout << "Employee ID: " << employeeID << endl;
-        cout << "Previous Salary: " << previousSalary << endl;
-        cout << "New Salary: " << newSalary << endl;
-        cout << "Effective Date: " << effectiveDate << endl;
-        cout << "Reason: " << reason << endl;
-        cout << "Changed By: " << changedBy << endl;
+
+        cout << "Employee ID: "
+             << employeeID << endl;
+
+        cout << "Previous Salary: "
+             << previousSalary << endl;
+
+        cout << "New Salary: "
+             << newSalary << endl;
+
+        cout << "Effective Date: "
+             << effectiveDate << endl;
+
+        cout << "Reason: "
+             << reason << endl;
+
+        cout << "Changed By: "
+             << changedBy << endl;
     }
 };
 

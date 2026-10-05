@@ -40,6 +40,11 @@ public:
         details = actionDetails;
     }
 
+    string getAction()
+    {
+        return action;
+    }
+
     string getPerformedBy()
     {
         return performedBy;
@@ -50,19 +55,34 @@ public:
         return targetID;
     }
 
-    string getAction()
+    string getDate()
     {
-        return action;
+        return date;
+    }
+
+    string getDetails()
+    {
+        return details;
     }
 
     void displayAudit()
     {
         cout << "\n========== AUDIT RECORD ==========\n";
-        cout << "Action: " << action << endl;
-        cout << "Performed By: " << performedBy << endl;
-        cout << "Target ID: " << targetID << endl;
-        cout << "Date: " << date << endl;
-        cout << "Details: " << details << endl;
+
+        cout << "Action: "
+             << action << endl;
+
+        cout << "Performed By: "
+             << performedBy << endl;
+
+        cout << "Target ID: "
+             << targetID << endl;
+
+        cout << "Date: "
+             << date << endl;
+
+        cout << "Details: "
+             << details << endl;
     }
 };
 

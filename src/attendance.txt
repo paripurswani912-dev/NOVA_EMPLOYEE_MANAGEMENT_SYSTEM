@@ -14,3 +14,15 @@ emp1
 26/10/2013
 Present
 hr1
+hr1
+3/10/2026
+Paid
+SA001
+hr1
+4/10/2026
+Paid
+SA001
+hr1
+5/10/2026
+Absent
+SA001

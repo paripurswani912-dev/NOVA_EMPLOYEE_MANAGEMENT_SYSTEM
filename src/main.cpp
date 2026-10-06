@@ -5,7 +5,6 @@
 #include "Person.h"
 #include "SuperAdmin.h"
 
-
 using namespace std;
 
 int main() {
@@ -28,9 +27,7 @@ int main() {
     cout << "Enter your choice: ";
     cin >> choice;
 
-    // =========================================================
     // ADMIN LOGIN
-    // =========================================================
 
     if (choice == 1) {
       string enteredID;
@@ -105,9 +102,7 @@ int main() {
             } while (hrChoice != 0);
           }
 
-          // =====================================================
           // MANAGE EMPLOYEES
-          // =====================================================
 
           else if (adminChoice == 2) {
             int employeeChoice;
@@ -142,9 +137,7 @@ int main() {
             } while (employeeChoice != 0);
           }
 
-          // =====================================================
           // ATTENDANCE MANAGEMENT
-          // =====================================================
 
           else if (adminChoice == 3) {
             int attendanceChoice;
@@ -201,9 +194,7 @@ int main() {
             } while (attendanceChoice != 0);
           }
 
-          // =====================================================
           // SALARY MANAGEMENT
-          // =====================================================
 
           else if (adminChoice == 4) {
             int salaryChoice;
@@ -241,9 +232,7 @@ int main() {
             } while (salaryChoice != 0);
           }
 
-          // =====================================================
           // PERFORMANCE MANAGEMENT
-          // =====================================================
 
           else if (adminChoice == 5) {
             int performanceChoice;
@@ -315,9 +304,7 @@ int main() {
             } while (performanceChoice != 0);
           }
 
-          // =====================================================
           // PROMOTION MANAGEMENT
-          // =====================================================
 
           else if (adminChoice == 6) {
             int promotionChoice;
@@ -368,25 +355,18 @@ int main() {
             } while (promotionChoice != 0);
           }
 
-          // =====================================================
           // AUDIT TRAIL
-          // =====================================================
-
           else if (adminChoice == 7) {
             admin.viewAuditTrail();
           }
 
-          // =====================================================
           // ACTIVITY DASHBOARD
-          // =====================================================
 
           else if (adminChoice == 8) {
             admin.viewAdminActivity();
           }
 
-          // =====================================================
           // LOGOUT
-          // =====================================================
 
           else if (adminChoice == 0) {
             cout << "\nLogging out...\n";
@@ -402,9 +382,7 @@ int main() {
       }
     }
 
-    // =========================================================
     // EMPLOYEE LOGIN
-    // =========================================================
 
     else if (choice == 2) {
       string enteredID;
@@ -459,9 +437,7 @@ int main() {
       }
     }
 
-    // =========================================================
     // HR LOGIN
-    // =========================================================
 
     else if (choice == 3) {
       string enteredID;
@@ -501,9 +477,7 @@ int main() {
           cout << "Enter your choice: ";
           cin >> hrChoice;
 
-          // =================================================
           // VIEW EMPLOYEE RECORDS
-          // =================================================
 
           if (hrChoice == 1) {
             cout << "\nView Employee Records selected.\n";
@@ -511,16 +485,12 @@ int main() {
             admin.viewAllEmployees();
           }
 
-          // =================================================
           // MARK EMPLOYEE ATTENDANCE
-          // =================================================
 
           else if (hrChoice == 2) {
             string employeeID;
             string date;
             string status;
-
-            cout << "\n========== MARK EMPLOYEE ATTENDANCE ==========\n";
 
             cout << "Enter Employee ID: ";
             cin >> employeeID;
@@ -544,9 +514,7 @@ int main() {
             admin.markEmployeeAttendance(employeeID, date, status, enteredID);
           }
 
-          // =================================================
           // SALARY RAISE REQUEST
-          // =================================================
 
           else if (hrChoice == 3) {
             string employeeID;
@@ -587,9 +555,7 @@ int main() {
                                            enteredID);
           }
 
-          // =================================================
           // PERFORMANCE RATING
-          // =================================================
 
           else if (hrChoice == 4) {
             string employeeID;
@@ -622,33 +588,25 @@ int main() {
             }
           }
 
-          // =================================================
-          // MY DETAILS
-          // =================================================
+          //  DETAILS
 
           else if (hrChoice == 5) {
             admin.viewHRDetailsByID(enteredID);
           }
 
-          // =================================================
-          // MY ATTENDANCE
-          // =================================================
+          //  ATTENDANCE
 
           else if (hrChoice == 6) {
             admin.viewHRAttendanceByID(enteredID);
           }
 
-          // =================================================
-          // MY SALARY
-          // =================================================
+          //  SALARY
 
           else if (hrChoice == 7) {
             admin.viewHRSalaryByID(enteredID);
           }
 
-          // =================================================
-          // ACTIVITY DASHBOARD
-          // =================================================
+          // PERFORMANCE DASHBOARD
 
           else if (hrChoice == 8) {
             admin.viewHRPerformance(enteredID);
@@ -656,7 +614,6 @@ int main() {
 
           // =================================================
           // ACTIVITY DASHBOARD
-          // =================================================
 
           else if (hrChoice == 9) {
             admin.viewHRActivity(enteredID);

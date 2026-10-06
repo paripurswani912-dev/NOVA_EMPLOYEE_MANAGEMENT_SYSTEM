@@ -34,9 +34,7 @@ private:
   vector<Promotion> promotionList;
   vector<AuditTrail> auditTrailList;
 
-  // =========================================================
   // CREATE DATA FILES IF THEY DO NOT EXIST
-  // =========================================================
 
   void createDataFiles() {
     ofstream("employees.txt", ios::app).close();
@@ -52,9 +50,7 @@ private:
 public:
   friend class Login;
 
-  // =========================================================
   // CONSTRUCTOR
-  // =========================================================
 
   SuperAdmin() {
     adminID = "SA001";
@@ -73,9 +69,7 @@ public:
     loadAuditTrail();
   }
 
-  // =========================================================
   // CHECK ID
-  // =========================================================
 
   bool isIDTaken(string searchID) {
     if (adminID == searchID) {
@@ -97,17 +91,13 @@ public:
     return false;
   }
 
-  // =========================================================
   // ADMIN LOGIN
-  // =========================================================
 
   bool login(string enteredID, string enteredPassword) {
     return enteredID == adminID && enteredPassword == password;
   }
 
-  // =========================================================
   // ADD HR
-  // =========================================================
 
   void addHR() {
     HR newHR;
@@ -136,9 +126,7 @@ public:
     cout << "HR details have been saved to hr.txt.\n";
   }
 
-  // =========================================================
   // SAVE HR
-  // =========================================================
 
   void saveHR() {
     ofstream file("hr.txt");
@@ -166,9 +154,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // LOAD HR
-  // =========================================================
 
   void loadHR() {
     ifstream file("hr.txt");
@@ -248,9 +234,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // VIEW ALL HR
-  // =========================================================
 
   void viewAllHR() {
     if (hrList.empty()) {
@@ -266,9 +250,7 @@ public:
     }
   }
 
-  // =========================================================
   // VIEW HR BY ID
-  // =========================================================
 
   void viewHRByID() {
     string searchID;
@@ -286,9 +268,7 @@ public:
     cout << "\nHR with ID " << searchID << " not found.\n";
   }
 
-  // =========================================================
   // DEACTIVATE HR
-  // =========================================================
 
   void deactivateHR() {
     string searchID;
@@ -319,9 +299,7 @@ public:
     cout << "\nHR with ID " << searchID << " not found.\n";
   }
 
-  // =========================================================
   // ADD EMPLOYEE
-  // =========================================================
 
   void addEmployee() {
     Employee newEmployee;
@@ -349,9 +327,7 @@ public:
     cout << "\nSuper Admin added an employee successfully.\n";
   }
 
-  // =========================================================
   // LOAD EMPLOYEES
-  // =========================================================
 
   void loadEmployees() {
     ifstream file("employees.txt");
@@ -431,9 +407,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // SAVE EMPLOYEES
-  // =========================================================
 
   void saveEmployees() {
     ofstream file("employees.txt");
@@ -461,9 +435,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // VIEW ALL EMPLOYEES
-  // =========================================================
 
   void viewAllEmployees() {
     if (employeeList.empty()) {
@@ -479,9 +451,7 @@ public:
     }
   }
 
-  // =========================================================
   // VIEW EMPLOYEE BY ID
-  // =========================================================
 
   void viewEmployeeByID() {
     string searchID;
@@ -499,9 +469,7 @@ public:
     cout << "\nEmployee with ID " << searchID << " not found.\n";
   }
 
-  // =========================================================
   // DEACTIVATE EMPLOYEE
-  // =========================================================
 
   void deactivateEmployee() {
     string searchID;
@@ -532,9 +500,7 @@ public:
     cout << "\nEmployee with ID " << searchID << " not found.\n";
   }
 
-  // =========================================================
   // ATTENDANCE - LOAD
-  // =========================================================
 
   void loadAttendance() {
     ifstream file("attendance.txt");
@@ -568,9 +534,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // ATTENDANCE - SAVE
-  // =========================================================
 
   void saveAttendance() {
     ofstream file("attendance.txt");
@@ -590,9 +554,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // COUNT PAID LEAVES
-  // =========================================================
 
   int countPaidLeaves(string personID, string month) {
     int count = 0;
@@ -608,9 +570,7 @@ public:
     return count;
   }
 
-  // =========================================================
   // COUNT PRESENT DAYS
-  // =========================================================
 
   int countPresentDays(string personID) {
     int count = 0;
@@ -625,9 +585,7 @@ public:
     return count;
   }
 
-  // =========================================================
   // COUNT PAID LEAVE DAYS
-  // =========================================================
 
   int countPaidLeaveDays(string personID) {
     int count = 0;
@@ -642,9 +600,7 @@ public:
     return count;
   }
 
-  // =========================================================
   // COUNT ABSENT DAYS
-  // =========================================================
 
   int countAbsentDays(string personID) {
     int count = 0;
@@ -659,9 +615,7 @@ public:
     return count;
   }
 
-  // =========================================================
   // COUNT TOTAL ATTENDANCE
-  // =========================================================
 
   int countTotalAttendance(string personID) {
     int count = 0;
@@ -675,9 +629,7 @@ public:
     return count;
   }
 
-  // =========================================================
   // ATTENDANCE PERCENTAGE
-  // =========================================================
 
   double calculateAttendancePercentage(string personID) {
     int presentDays = countPresentDays(personID);
@@ -691,9 +643,7 @@ public:
     return (static_cast<double>(presentDays + paidLeaveDays) / totalDays) * 100;
   }
 
-  // =========================================================
   // VIEW ATTENDANCE SUMMARY
-  // =========================================================
 
   void viewAttendanceByID() {
     string personID;
@@ -754,9 +704,7 @@ public:
     cout << "Attendance Percentage: " << percentage << "%\n";
   }
 
-  // =========================================================
   // MARK EMPLOYEE ATTENDANCE
-  // =========================================================
 
   void markEmployeeAttendance(string employeeID, string date, string status,
                               string markedBy) {
@@ -803,9 +751,7 @@ public:
     cout << "\nEmployee with ID " << employeeID << " not found.\n";
   }
 
-  // =========================================================
   // VIEW ALL ATTENDANCE
-  // =========================================================
 
   void viewAllAttendance() {
     if (attendanceList.empty()) {
@@ -820,9 +766,7 @@ public:
     }
   }
 
-  // =========================================================
   // MARK HR ATTENDANCE
-  // =========================================================
 
   void markHRAttendance(string hrID, string date, string status) {
     for (size_t i = 0; i < hrList.size(); i++) {
@@ -868,9 +812,7 @@ public:
     cout << "\nHR with ID " << hrID << " not found.\n";
   }
 
-  // =========================================================
   // VIEW EMPLOYEE SALARY
-  // =========================================================
 
   void viewEmployeeSalary() {
     string employeeID;
@@ -896,9 +838,7 @@ public:
     cout << "\nEmployee with ID " << employeeID << " not found.\n";
   }
 
-  // =========================================================
   // UPDATE EMPLOYEE SALARY
-  // =========================================================
 
   void updateEmployeeSalary() {
     string employeeID;
@@ -954,9 +894,7 @@ public:
     cout << "\nEmployee with ID " << employeeID << " not found.\n";
   }
 
-  // =========================================================
   // SAVE SALARY HISTORY
-  // =========================================================
 
   void saveSalaryHistory() {
     ofstream file("salary_history.txt");
@@ -979,9 +917,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // LOAD SALARY HISTORY
-  // =========================================================
 
   void loadSalaryHistory() {
     ifstream file("salary_history.txt");
@@ -1025,9 +961,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // VIEW SALARY HISTORY
-  // =========================================================
 
   void viewSalaryHistory() {
     if (salaryHistoryList.empty()) {
@@ -1042,9 +976,7 @@ public:
     }
   }
 
-  // =========================================================
   // SUBMIT SALARY RAISE REQUEST
-  // =========================================================
 
   void submitSalaryRaiseRequest(string employeeID, double proposedSalary,
                                 string reason, int performanceRating,
@@ -1084,9 +1016,7 @@ public:
     cout << "\nEmployee with ID " << employeeID << " not found.\n";
   }
 
-  // =========================================================
   // SAVE SALARY RAISE REQUESTS
-  // =========================================================
 
   void saveSalaryRaiseRequests() {
     ofstream file("salary_raise_requests.txt");
@@ -1122,9 +1052,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // LOAD SALARY RAISE REQUESTS
-  // =========================================================
 
   void loadSalaryRaiseRequests() {
     ifstream file("salary_raise_requests.txt");
@@ -1188,9 +1116,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // VIEW SALARY RAISE REQUESTS
-  // =========================================================
 
   void viewSalaryRaiseRequests() {
     if (salaryRaiseRequestList.empty()) {
@@ -1207,9 +1133,7 @@ public:
     }
   }
 
-  // =========================================================
   // DECIDE SALARY RAISE REQUEST
-  // =========================================================
 
   void decideSalaryRaiseRequest() {
     if (salaryRaiseRequestList.empty()) {
@@ -1332,9 +1256,7 @@ public:
     cout << "Employee salary updated successfully.\n";
   }
 
-  // =========================================================
   // GIVE EMPLOYEE PERFORMANCE RATING
-  // =========================================================
 
   void giveEmployeePerformanceRating(string employeeID, int rating,
                                      string review, string date, string hrID) {
@@ -1395,9 +1317,7 @@ public:
     cout << "\nPerformance rating given successfully!\n";
   }
 
-  // =========================================================
   // GIVE HR PERFORMANCE RATING
-  // =========================================================
 
   void giveHRPerformanceRating(string hrID, int rating, string review,
                                string date) {
@@ -1438,7 +1358,6 @@ public:
   }
 
   // SAVE PERFORMANCE
-  // =========================================================
 
   void savePerformance() {
     ofstream file("performance.txt");
@@ -1459,11 +1378,10 @@ public:
     file.close();
   }
 
-  // =========================================================
-  // LOAD PERFORMANCE
-  // =========================================================
+  =
+      // LOAD PERFORMANCE
 
-  void loadPerformance() {
+      void loadPerformance() {
     ifstream file("performance.txt");
 
     if (!file) {
@@ -1500,9 +1418,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // VIEW EMPLOYEE PERFORMANCE
-  // =========================================================
 
   void viewEmployeePerformance(string employeeID) {
     bool found = false;
@@ -1520,9 +1436,7 @@ public:
     }
   }
 
-  // =========================================================
   // VIEW HR PERFORMANCE
-  // =========================================================
 
   void viewHRPerformance(string hrID) {
     bool found = false;
@@ -1541,7 +1455,6 @@ public:
   }
 
   // VIEW ALL PERFORMANCE
-  // =========================================================
 
   void viewAllPerformance() {
     if (performanceList.empty()) {
@@ -1556,9 +1469,7 @@ public:
     }
   }
 
-  // =========================================================
   // PROMOTE EMPLOYEE
-  // =========================================================
 
   void promoteEmployee(string employeeID, string newDesignation,
                        string promotionDate, string reason) {
@@ -1595,9 +1506,7 @@ public:
     cout << "\nEmployee with ID " << employeeID << " not found.\n";
   }
 
-  // =========================================================
   // SAVE PROMOTIONS
-  // =========================================================
 
   void savePromotions() {
     ofstream file("promotions.txt");
@@ -1619,9 +1528,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // LOAD PROMOTIONS
-  // =========================================================
 
   void loadPromotions() {
     ifstream file("promotions.txt");
@@ -1664,9 +1571,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // VIEW ALL PROMOTIONS
-  // =========================================================
 
   void viewAllPromotions() {
     if (promotionList.empty()) {
@@ -1681,9 +1586,7 @@ public:
     }
   }
 
-  // =========================================================
   // ADD AUDIT RECORD
-  // =========================================================
 
   void addAuditRecord(string action, string performedBy, string targetID,
                       string date, string details) {
@@ -1696,9 +1599,7 @@ public:
     saveAuditTrail();
   }
 
-  // =========================================================
   // SAVE AUDIT TRAIL
-  // =========================================================
 
   void saveAuditTrail() {
     ofstream file("audit.txt");
@@ -1719,9 +1620,7 @@ public:
     file.close();
   }
 
-  // =========================================================
   // LOAD AUDIT TRAIL
-  // =========================================================
 
   void loadAuditTrail() {
     ifstream file("audit.txt");
@@ -1757,359 +1656,338 @@ public:
     }
 
     file.close();
-  }
 
-  // =========================================================
-  // VIEW AUDIT TRAIL
-  // =========================================================
+    // VIEW AUDIT TRAIL
 
-  void viewAuditTrail() {
-    if (auditTrailList.empty()) {
-      cout << "\nNo audit records available.\n";
-      return;
-    }
-
-    cout << "\n========================================\n";
-    cout << "              AUDIT TRAIL\n";
-    cout << "========================================\n";
-
-    for (size_t i = 0; i < auditTrailList.size(); i++) {
-      auditTrailList[i].displayAudit();
-    }
-  }
-
-  // =========================================================
-  // EMPLOYEE SELF DETAILS
-  // =========================================================
-
-  void viewEmployeeDetailsByID(string employeeID) {
-    for (size_t i = 0; i < employeeList.size(); i++) {
-      if (employeeList[i].getID() == employeeID) {
-        employeeList[i].displayEmployeeDetails();
+    void viewAuditTrail() {
+      if (auditTrailList.empty()) {
+        cout << "\nNo audit records available.\n";
         return;
       }
-    }
 
-    cout << "\nEmployee record not found.\n";
-  }
+      cout << "\n========================================\n";
+      cout << "              AUDIT TRAIL\n";
+      cout << "========================================\n";
 
-  // =========================================================
-  // EMPLOYEE SELF ATTENDANCE
-  // =========================================================
-
-  void viewEmployeeAttendanceByID(string employeeID) {
-    int presentDays = countPresentDays(employeeID);
-
-    int totalDays = countTotalAttendance(employeeID);
-
-    double percentage = calculateAttendancePercentage(employeeID);
-
-    cout << "\n========== MY ATTENDANCE ==========\n";
-
-    cout << "Employee ID: " << employeeID << endl;
-
-    cout << "Present Days: " << presentDays << endl;
-
-    cout << "Total Attendance Records: " << totalDays << endl;
-
-    cout << "Attendance Percentage: " << percentage << "%\n";
-  }
-
-  // =========================================================
-  // EMPLOYEE SELF SALARY
-  // =========================================================
-
-  void viewEmployeeSalaryByID(string employeeID) {
-    for (size_t i = 0; i < employeeList.size(); i++) {
-      if (employeeList[i].getID() == employeeID) {
-        cout << "\n========== MY SALARY ==========\n";
-
-        cout << "Employee ID: " << employeeID << endl;
-
-        cout << "Salary: " << employeeList[i].getSalary() << endl;
-
-        return;
-      }
-    }
-
-    cout << "\nEmployee record not found.\n";
-  }
-
-  // =========================================================
-  // HR SELF DETAILS
-  // =========================================================
-
-  void viewHRDetailsByID(string hrID) {
-    for (size_t i = 0; i < hrList.size(); i++) {
-      if (hrList[i].getID() == hrID) {
-        hrList[i].displayHRDetails();
-        return;
-      }
-    }
-
-    cout << "\nHR record not found.\n";
-  }
-
-  // =========================================================
-  // HR SELF ATTENDANCE
-  // =========================================================
-
-  void viewHRAttendanceByID(string hrID) {
-    int presentDays = countPresentDays(hrID);
-
-    int paidLeaveDays = countPaidLeaveDays(hrID);
-
-    int absentDays = countAbsentDays(hrID);
-
-    int totalDays = countTotalAttendance(hrID);
-
-    double percentage = calculateAttendancePercentage(hrID);
-
-    cout << "\n========== MY ATTENDANCE ==========\n";
-
-    cout << "HR ID: " << hrID << endl;
-
-    cout << "Present Days: " << presentDays << endl;
-
-    cout << "Paid Leave Days: " << paidLeaveDays << endl;
-
-    cout << "Absent Days: " << absentDays << endl;
-
-    cout << "Total Attendance Records: " << totalDays << endl;
-
-    cout << "Attendance Percentage: " << percentage << "%\n";
-  }
-
-  // =========================================================
-  // HR SELF SALARY
-  // =========================================================
-
-  void viewHRSalaryByID(string hrID) {
-    for (size_t i = 0; i < hrList.size(); i++) {
-      if (hrList[i].getID() == hrID) {
-        cout << "\n========== MY SALARY ==========\n";
-
-        cout << "HR ID: " << hrID << endl;
-
-        cout << "Salary: " << hrList[i].getSalary() << endl;
-
-        return;
-      }
-    }
-
-    cout << "\nHR record not found.\n";
-  }
-
-  // =========================================================
-  // EMPLOYEE ACTIVITY DASHBOARD
-  // =========================================================
-
-  void viewEmployeeActivity(string employeeID) {
-    cout << "\n========================================\n";
-    cout << "          MY ACTIVITY DASHBOARD\n";
-    cout << "========================================\n";
-
-    cout << "\n---------- ATTENDANCE ----------\n";
-
-    cout << "Present Days: " << countPresentDays(employeeID) << endl;
-
-    cout << "Paid Leave Days: " << countPaidLeaveDays(employeeID) << endl;
-
-    cout << "Absent Days: " << countAbsentDays(employeeID) << endl;
-
-    cout << "Total Records: " << countTotalAttendance(employeeID) << endl;
-
-    cout << "Attendance Percentage: "
-         << calculateAttendancePercentage(employeeID) << "%\n";
-
-    cout << "\n---------- PERFORMANCE ----------\n";
-
-    bool performanceFound = false;
-
-    for (size_t i = 0; i < performanceList.size(); i++) {
-      if (performanceList[i].getPersonID() == employeeID) {
-        performanceList[i].displayPerformance();
-        performanceFound = true;
-      }
-    }
-
-    if (!performanceFound) {
-      cout << "No performance records available.\n";
-    }
-
-    cout << "\n---------- RECENT ACTIVITIES ----------\n";
-
-    bool activityFound = false;
-
-    for (size_t i = 0; i < auditTrailList.size(); i++) {
-      if (auditTrailList[i].getTargetID() == employeeID) {
-        auditTrailList[i].displayAudit();
-        activityFound = true;
-      }
-    }
-
-    if (!activityFound) {
-      cout << "No activity records available.\n";
-    }
-  }
-
-  // =========================================================
-  // HR ACTIVITY DASHBOARD
-  // =========================================================
-
-  void viewHRActivity(string hrID) {
-    cout << "\n========================================\n";
-    cout << "          HR ACTIVITY DASHBOARD\n";
-    cout << "========================================\n";
-
-    cout << "\n---------- MY ATTENDANCE ----------\n";
-
-    cout << "Present Days: " << countPresentDays(hrID) << endl;
-
-    cout << "Paid Leave Days: " << countPaidLeaveDays(hrID) << endl;
-
-    cout << "Absent Days: " << countAbsentDays(hrID) << endl;
-
-    cout << "Total Records: " << countTotalAttendance(hrID) << endl;
-
-    cout << "Attendance Percentage: " << calculateAttendancePercentage(hrID)
-         << "%\n";
-
-    cout << "\n---------- ATTENDANCE MARKED BY ME ----------\n";
-
-    bool attendanceFound = false;
-
-    for (size_t i = 0; i < attendanceList.size(); i++) {
-      if (attendanceList[i].getMarkedBy() == hrID) {
-        attendanceList[i].displayAttendance();
-        attendanceFound = true;
-      }
-    }
-
-    if (!attendanceFound) {
-      cout << "No employee attendance marked by you.\n";
-    }
-
-    cout << "\n---------- SALARY RAISE REQUESTS ----------\n";
-
-    bool requestFound = false;
-
-    for (size_t i = 0; i < salaryRaiseRequestList.size(); i++) {
-      if (salaryRaiseRequestList[i].getRequestedBy() == hrID) {
-        salaryRaiseRequestList[i].displayRequest();
-        requestFound = true;
-      }
-    }
-
-    if (!requestFound) {
-      cout << "No salary raise requests submitted by you.\n";
-    }
-
-    cout << "\n---------- MY PERFORMANCE RATING ----------\n";
-
-    bool myRatingFound = false;
-
-    for (size_t i = 0; i < performanceList.size(); i++) {
-      if (performanceList[i].getPersonID() == hrID) {
-        performanceList[i].displayPerformance();
-        myRatingFound = true;
-      }
-    }
-
-    if (!myRatingFound) {
-      cout << "No performance rating received yet.\n";
-    }
-
-    cout << "\n---------- PERFORMANCE RATINGS GIVEN ----------\n";
-
-    bool ratingFound = false;
-
-    for (size_t i = 0; i < performanceList.size(); i++) {
-      if (performanceList[i].getGivenBy() == hrID) {
-        performanceList[i].displayPerformance();
-        ratingFound = true;
-      }
-    }
-
-    if (!ratingFound) {
-      cout << "No performance ratings given by you.\n";
-    }
-
-    cout << "\n---------- MY SYSTEM ACTIVITIES ----------\n";
-
-    bool activityFound = false;
-
-    for (size_t i = 0; i < auditTrailList.size(); i++) {
-      if (auditTrailList[i].getPerformedBy() == hrID) {
-        auditTrailList[i].displayAudit();
-        activityFound = true;
-      }
-    }
-
-    if (!activityFound) {
-      cout << "No activity records available.\n";
-    }
-  }
-
-  // =========================================================
-  // SUPER ADMIN ACTIVITY DASHBOARD
-  // =========================================================
-
-  void viewAdminActivity() {
-    cout << "\n========================================\n";
-    cout << "       SYSTEM ACTIVITY DASHBOARD\n";
-    cout << "========================================\n";
-
-    cout << "\n---------- SYSTEM AUDIT ACTIVITY ----------\n";
-
-    if (auditTrailList.empty()) {
-      cout << "No system activity available.\n";
-    } else {
       for (size_t i = 0; i < auditTrailList.size(); i++) {
         auditTrailList[i].displayAudit();
       }
     }
 
-    cout << "\n---------- ATTENDANCE ACTIVITY ----------\n";
+    // EMPLOYEE SELF DETAILS
 
-    if (attendanceList.empty()) {
-      cout << "No attendance activity available.\n";
-    } else {
-      for (size_t i = 0; i < attendanceList.size(); i++) {
-        attendanceList[i].displayAttendance();
+    void viewEmployeeDetailsByID(string employeeID) {
+      for (size_t i = 0; i < employeeList.size(); i++) {
+        if (employeeList[i].getID() == employeeID) {
+          employeeList[i].displayEmployeeDetails();
+          return;
+        }
       }
+
+      cout << "\nEmployee record not found.\n";
     }
 
-    cout << "\n---------- PERFORMANCE ACTIVITY ----------\n";
+    // EMPLOYEE SELF ATTENDANCE
 
-    if (performanceList.empty()) {
-      cout << "No performance activity available.\n";
-    } else {
+    void viewEmployeeAttendanceByID(string employeeID) {
+      int presentDays = countPresentDays(employeeID);
+
+      int totalDays = countTotalAttendance(employeeID);
+
+      double percentage = calculateAttendancePercentage(employeeID);
+
+      cout << "\n========== MY ATTENDANCE ==========\n";
+
+      cout << "Employee ID: " << employeeID << endl;
+
+      cout << "Present Days: " << presentDays << endl;
+
+      cout << "Total Attendance Records: " << totalDays << endl;
+
+      cout << "Attendance Percentage: " << percentage << "%\n";
+    }
+
+    // EMPLOYEE SELF SALARY
+
+    void viewEmployeeSalaryByID(string employeeID) {
+      for (size_t i = 0; i < employeeList.size(); i++) {
+        if (employeeList[i].getID() == employeeID) {
+          cout << "\n========== MY SALARY ==========\n";
+
+          cout << "Employee ID: " << employeeID << endl;
+
+          cout << "Salary: " << employeeList[i].getSalary() << endl;
+
+          return;
+        }
+      }
+
+      cout << "\nEmployee record not found.\n";
+    }
+
+    // HR SELF DETAILS
+
+    void viewHRDetailsByID(string hrID) {
+      for (size_t i = 0; i < hrList.size(); i++) {
+        if (hrList[i].getID() == hrID) {
+          hrList[i].displayHRDetails();
+          return;
+        }
+      }
+
+      cout << "\nHR record not found.\n";
+    }
+
+    // HR SELF ATTENDANCE
+
+    void viewHRAttendanceByID(string hrID) {
+      int presentDays = countPresentDays(hrID);
+
+      int paidLeaveDays = countPaidLeaveDays(hrID);
+
+      int absentDays = countAbsentDays(hrID);
+
+      int totalDays = countTotalAttendance(hrID);
+
+      double percentage = calculateAttendancePercentage(hrID);
+
+      cout << "\n========== MY ATTENDANCE ==========\n";
+
+      cout << "HR ID: " << hrID << endl;
+
+      cout << "Present Days: " << presentDays << endl;
+
+      cout << "Paid Leave Days: " << paidLeaveDays << endl;
+
+      cout << "Absent Days: " << absentDays << endl;
+
+      cout << "Total Attendance Records: " << totalDays << endl;
+
+      cout << "Attendance Percentage: " << percentage << "%\n";
+    }
+
+    // HR SELF SALARY
+
+    void viewHRSalaryByID(string hrID) {
+      for (size_t i = 0; i < hrList.size(); i++) {
+        if (hrList[i].getID() == hrID) {
+          cout << "\n========== MY SALARY ==========\n";
+
+          cout << "HR ID: " << hrID << endl;
+
+          cout << "Salary: " << hrList[i].getSalary() << endl;
+
+          return;
+        }
+      }
+
+      cout << "\nHR record not found.\n";
+    }
+
+    // EMPLOYEE ACTIVITY DASHBOARD
+
+    void viewEmployeeActivity(string employeeID) {
+      cout << "\n========================================\n";
+      cout << "          MY ACTIVITY DASHBOARD\n";
+      cout << "========================================\n";
+
+      cout << "\n---------- ATTENDANCE ----------\n";
+
+      cout << "Present Days: " << countPresentDays(employeeID) << endl;
+
+      cout << "Paid Leave Days: " << countPaidLeaveDays(employeeID) << endl;
+
+      cout << "Absent Days: " << countAbsentDays(employeeID) << endl;
+
+      cout << "Total Records: " << countTotalAttendance(employeeID) << endl;
+
+      cout << "Attendance Percentage: "
+           << calculateAttendancePercentage(employeeID) << "%\n";
+
+      cout << "\n---------- PERFORMANCE ----------\n";
+
+      bool performanceFound = false;
+
       for (size_t i = 0; i < performanceList.size(); i++) {
-        performanceList[i].displayPerformance();
+        if (performanceList[i].getPersonID() == employeeID) {
+          performanceList[i].displayPerformance();
+          performanceFound = true;
+        }
+      }
+
+      if (!performanceFound) {
+        cout << "No performance records available.\n";
+      }
+
+      cout << "\n---------- RECENT ACTIVITIES ----------\n";
+
+      bool activityFound = false;
+
+      for (size_t i = 0; i < auditTrailList.size(); i++) {
+        if (auditTrailList[i].getTargetID() == employeeID) {
+          auditTrailList[i].displayAudit();
+          activityFound = true;
+        }
+      }
+
+      if (!activityFound) {
+        cout << "No activity records available.\n";
       }
     }
 
-    cout << "\n---------- PROMOTION ACTIVITY ----------\n";
+    // HR ACTIVITY DASHBOARD
 
-    if (promotionList.empty()) {
-      cout << "No promotion activity available.\n";
-    } else {
-      for (size_t i = 0; i < promotionList.size(); i++) {
-        promotionList[i].displayPromotion();
+    void viewHRActivity(string hrID) {
+      cout << "\n========================================\n";
+      cout << "          HR ACTIVITY DASHBOARD\n";
+      cout << "========================================\n";
+
+      cout << "\n---------- MY ATTENDANCE ----------\n";
+
+      cout << "Present Days: " << countPresentDays(hrID) << endl;
+
+      cout << "Paid Leave Days: " << countPaidLeaveDays(hrID) << endl;
+
+      cout << "Absent Days: " << countAbsentDays(hrID) << endl;
+
+      cout << "Total Records: " << countTotalAttendance(hrID) << endl;
+
+      cout << "Attendance Percentage: " << calculateAttendancePercentage(hrID)
+           << "%\n";
+
+      cout << "\n---------- ATTENDANCE MARKED BY ME ----------\n";
+
+      bool attendanceFound = false;
+
+      for (size_t i = 0; i < attendanceList.size(); i++) {
+        if (attendanceList[i].getMarkedBy() == hrID) {
+          attendanceList[i].displayAttendance();
+          attendanceFound = true;
+        }
       }
-    }
 
-    cout << "\n---------- SALARY RAISE ACTIVITY ----------\n";
+      if (!attendanceFound) {
+        cout << "No employee attendance marked by you.\n";
+      }
 
-    if (salaryRaiseRequestList.empty()) {
-      cout << "No salary raise activity available.\n";
-    } else {
+      cout << "\n---------- SALARY RAISE REQUESTS ----------\n";
+
+      bool requestFound = false;
+
       for (size_t i = 0; i < salaryRaiseRequestList.size(); i++) {
-        salaryRaiseRequestList[i].displayRequest();
+        if (salaryRaiseRequestList[i].getRequestedBy() == hrID) {
+          salaryRaiseRequestList[i].displayRequest();
+          requestFound = true;
+        }
+      }
+
+      if (!requestFound) {
+        cout << "No salary raise requests submitted by you.\n";
+      }
+
+      cout << "\n---------- MY PERFORMANCE RATING ----------\n";
+
+      bool myRatingFound = false;
+
+      for (size_t i = 0; i < performanceList.size(); i++) {
+        if (performanceList[i].getPersonID() == hrID) {
+          performanceList[i].displayPerformance();
+          myRatingFound = true;
+        }
+      }
+
+      if (!myRatingFound) {
+        cout << "No performance rating received yet.\n";
+      }
+
+      cout << "\n---------- PERFORMANCE RATINGS GIVEN ----------\n";
+
+      bool ratingFound = false;
+
+      for (size_t i = 0; i < performanceList.size(); i++) {
+        if (performanceList[i].getGivenBy() == hrID) {
+          performanceList[i].displayPerformance();
+          ratingFound = true;
+        }
+      }
+
+      if (!ratingFound) {
+        cout << "No performance ratings given by you.\n";
+      }
+
+      cout << "\n---------- MY SYSTEM ACTIVITIES ----------\n";
+
+      bool activityFound = false;
+
+      for (size_t i = 0; i < auditTrailList.size(); i++) {
+        if (auditTrailList[i].getPerformedBy() == hrID) {
+          auditTrailList[i].displayAudit();
+          activityFound = true;
+        }
+      }
+
+      if (!activityFound) {
+        cout << "No activity records available.\n";
       }
     }
-  }
-};
+
+    // SUPER ADMIN ACTIVITY DASHBOARD
+
+    void viewAdminActivity() {
+      cout << "\n========================================\n";
+      cout << "       SYSTEM ACTIVITY DASHBOARD\n";
+      cout << "========================================\n";
+
+      cout << "\n---------- SYSTEM AUDIT ACTIVITY ----------\n";
+
+      if (auditTrailList.empty()) {
+        cout << "No system activity available.\n";
+      } else {
+        for (size_t i = 0; i < auditTrailList.size(); i++) {
+          auditTrailList[i].displayAudit();
+        }
+      }
+
+      cout << "\n---------- ATTENDANCE ACTIVITY ----------\n";
+
+      if (attendanceList.empty()) {
+        cout << "No attendance activity available.\n";
+      } else {
+        for (size_t i = 0; i < attendanceList.size(); i++) {
+          attendanceList[i].displayAttendance();
+        }
+      }
+
+      cout << "\n---------- PERFORMANCE ACTIVITY ----------\n";
+
+      if (performanceList.empty()) {
+        cout << "No performance activity available.\n";
+      } else {
+        for (size_t i = 0; i < performanceList.size(); i++) {
+          performanceList[i].displayPerformance();
+        }
+      }
+
+      cout << "\n---------- PROMOTION ACTIVITY ----------\n";
+
+      if (promotionList.empty()) {
+        cout << "No promotion activity available.\n";
+      } else {
+        for (size_t i = 0; i < promotionList.size(); i++) {
+          promotionList[i].displayPromotion();
+        }
+      }
+
+      cout << "\n---------- SALARY RAISE ACTIVITY ----------\n";
+
+      if (salaryRaiseRequestList.empty()) {
+        cout << "No salary raise activity available.\n";
+      } else {
+        for (size_t i = 0; i < salaryRaiseRequestList.size(); i++) {
+          salaryRaiseRequestList[i].displayRequest();
+        }
+      }
+    }
+  };
 
 #endif

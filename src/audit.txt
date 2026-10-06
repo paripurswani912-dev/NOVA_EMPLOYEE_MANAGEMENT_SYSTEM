@@ -1,35 +1,80 @@
-HR Attendance Marked
+HR Added
 SA001
 hr1
-3/10/2026
-HR attendance was marked.
-HR Attendance Marked
+Current
+New HR was added to the system.
+Employee Added
 SA001
-hr1
-4/10/2026
-HR attendance was marked.
-HR Attendance Marked
+emp1
+Current
+New employee was added to the system.
+HR Added
 SA001
+hr2
+Current
+New HR was added to the system.
+Employee Added
+SA001
+emp2
+Current
+New employee was added to the system.
+Employee Deactivated
+SA001
+emp2
+Current
+Employee account was deactivated.
+Employee Attendance Marked
 hr1
-5/10/2026
-HR attendance was marked.
+emp1
+26/11/2025
+Employee attendance was marked.
+Employee Attendance Marked
+hr1
+emp1
+27/11/2025
+Employee attendance was marked.
+Employee Attendance Marked
+hr1
+emp1
+28/11/2025
+Employee attendance was marked.
+Employee Attendance Marked
+hr1
+emp1
+28/11/2025
+Employee attendance was marked.
 Salary Raise Requested
 hr1
 emp1
 06/10/2026
 Salary raise request was submitted.
+HR Attendance Marked
+SA001
+hr1
+06/10/2026
+HR attendance was marked.
 Salary Raise Approved
 SA001
 emp1
 06/10/2026
 Salary raise request was approved.
+Employee Promoted
+SA001
+emp1
+06/10/2026
+Employee designation changed to head
+Salary Updated
+SA001
+emp1
+07/10/2026
+Employee salary was updated.
 HR Performance Rating Given
 SA001
 hr1
 06/10/2026
 Super Admin gave a performance rating to HR.
-HR Performance Rating Given
+Employee Promoted
 SA001
-hr1
+emp1
 06/10/2026
-Super Admin gave a performance rating to HR.
+Employee designation changed to head

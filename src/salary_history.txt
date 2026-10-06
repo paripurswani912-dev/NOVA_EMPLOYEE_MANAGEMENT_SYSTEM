@@ -10,3 +10,9 @@ emp1
 07/10/2026
 good work
 SA001
+emp1
+60000
+100000
+06/10/2026
+Approved salary raise request
+SA001

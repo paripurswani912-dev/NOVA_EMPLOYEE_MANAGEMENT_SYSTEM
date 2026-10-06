@@ -78,3 +78,38 @@ SA001
 emp1
 06/10/2026
 Employee designation changed to head
+HR Deactivated
+SA001
+hr2
+Current
+HR account was deactivated.
+HR Attendance Marked
+SA001
+hr1
+26/10.26
+HR attendance was marked.
+HR Attendance Marked
+SA001
+hr1
+26/10/26
+HR attendance was marked.
+HR Attendance Marked
+SA001
+hr1
+26/10/26
+HR attendance was marked.
+Salary Raise Requested
+hr1
+emp1
+06/10/2026
+Salary raise request was submitted.
+Performance Rating Given
+hr1
+emp1
+06/10/2026
+HR gave a performance rating to the employee.
+Salary Raise Approved
+SA001
+emp1
+06/10/2026
+Salary raise request was approved.

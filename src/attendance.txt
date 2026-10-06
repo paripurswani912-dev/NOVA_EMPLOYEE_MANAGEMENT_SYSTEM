@@ -18,3 +18,15 @@ hr1
 06/10/2026
 Present
 SA001
+hr1
+26/10.26
+Paid
+SA001
+hr1
+26/10/26
+Paid
+SA001
+hr1
+26/10/26
+Absent
+SA001

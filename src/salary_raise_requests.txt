@@ -8,3 +8,13 @@ hr1
 Approved
 06/10/2026
 SA001
+emp1
+60000
+100000
+god looking
+4
+06/10/2026
+hr1
+Approved
+06/10/2026
+SA001
